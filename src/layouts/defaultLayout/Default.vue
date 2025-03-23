@@ -1,9 +1,9 @@
 <!--路径 /src/components/Basic/container/MContainer.vue-->
 <template>
 	<m-container>
-        <m-aside>Aside</m-aside>
+        <m-aside width="200px">Aside</m-aside>
         <m-container>
-            <m-header width="200px">Header</m-header>
+            <m-header >Header</m-header>
 			<m-main>Main</m-main>
 		</m-container>
 	</m-container>
@@ -15,6 +15,7 @@
 
 <style scoped lang="scss">
 	.m-container {
+        width: 100vw;
 		height: 100vh;
 		gap: $space-1;
 	}
