@@ -1,5 +1,5 @@
 {
-  "name": "Mast",
+  "name": "docs",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,8 +7,5 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  }
+  "description": ""
 }
