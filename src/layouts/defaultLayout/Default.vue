@@ -1,6 +1,18 @@
+<!--路径 src/layouts/defaultLayout/Default.vue-->
 <template>
-<Layouts></Layouts>
+<!--  水平布局-->
+  <m-contariner direction="vertical">
+    <m-header>头部</m-header>
+    <m-container direction="horizontal">
+      <m-main>主要内容</m-main>
+    </m-container>
+    <m-footer>页尾</m-footer>
+  </m-contariner>
 </template>
-<script lang="ts" setup>
-import Layouts from '../../components/Basic基础组件/layouts/Layouts.vue';
+<script setup lang="ts">
+
 </script>
+<style scoped lang="scss">
+
+</style>
+

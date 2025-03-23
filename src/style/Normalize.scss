@@ -4,9 +4,16 @@ $root-font-size: 16px; // Define the variable
 :root {
   font-size: $root-font-size; // 默认 16px
 }
+// 全局应用 box-sizing: border-box
+*,
+*::before,
+*::after {
+	box-sizing: border-box !important;
+}
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
 }
 body {
 	margin: 0;

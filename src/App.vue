@@ -1,3 +1,4 @@
+<!--路径 src/App.vue-->
 <template>
 <DefaultLayout />
 </template>

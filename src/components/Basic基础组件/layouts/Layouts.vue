@@ -1,7 +1,5 @@
 <template>
-<header>
-布局
-</header>
+
 </template>
 
 <script setup lang="ts">
