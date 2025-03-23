@@ -3,7 +3,7 @@
 	<m-container>
         <m-aside>Aside</m-aside>
         <m-container>
-            <m-header>Header</m-header>
+            <m-header width="200px">Header</m-header>
 			<m-main>Main</m-main>
 		</m-container>
 	</m-container>

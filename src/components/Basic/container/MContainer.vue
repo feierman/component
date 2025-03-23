@@ -1,41 +1,72 @@
+<!-- /src/components/Basic/container/MContainer.vue -->
 <template>
-	<div class="m-container" :class="direction">
-		<slot></slot>
-	</div>
+    <div class="m-container" :class="direction">
+        <slot></slot>
+    </div>
 </template>
 
 <script setup lang="ts">
-	import { computed, useSlots } from 'vue';
-	
-	const slots = useSlots();
-	
-	const direction = computed(() => {
-		if (slots.default) {
-			const vnodes = slots.default();
-			const hasHeaderOrFooter = vnodes.some((node) => {
-				// 检查组件的 name 属性，确保正确识别
-				return node.type?.name === 'MHeader' || node.type?.name === 'MFooter';
-			});
-			return hasHeaderOrFooter ? 'vertical' : 'horizontal';
-		}
-		return 'vertical'; // 默认垂直布局
-	});
+import { computed, useSlots } from 'vue';
+
+// Define component name for detection
+defineOptions({
+    name: 'MContainer',
+});
+
+const slots = useSlots();
+
+// Compute flex direction based on child components
+const direction = computed(() => {
+    if (slots.default) {
+        const vnodes = slots.default();
+        const hasHeaderOrFooter = vnodes.some((node) => {
+            // Type-safe check for component name
+            return (
+                node.type &&
+                typeof node.type === 'object' &&
+                'name' in node.type &&
+                (node.type.name === 'MHeader' || node.type.name === 'MFooter')
+            );
+        });
+        return hasHeaderOrFooter ? 'vertical' : 'horizontal';
+    }
+    return 'vertical'; // Default to vertical if no slots
+});
 </script>
 
 <style lang="scss" scoped>
-	.m-container {
-		display: flex;
-		flex-direction: column;
-		&:deep(.horizontal) {
-			flex-direction: row; // 水平排列时，使用 horizontal 类
-		}
-		.m-header,
-		.m-footer {
-			flex-shrink: 0; // 防止 header 和 footer 收缩
-		}
-		.m-aside,
-		.m-main {
-			min-height: 200px; // 设置最小高度，可根据实际情况调整
-		}
-	}
+.m-container {
+    display: flex;
+    height: 100vh;
+    gap: $space-1;
+
+    &.vertical {
+        flex-direction: column;
+    }
+
+    &.horizontal {
+        flex-direction: row;
+    }
+
+    // Child component styles
+    .m-header,
+    .m-footer {
+        flex-shrink: 0; // Prevent shrinking
+        background-color: $primary;
+    }
+
+    .m-aside {
+        width: $default-width;
+        background-color: $primary;
+    }
+
+    .m-main {
+        flex: 1;
+        background-color: $primary;
+    }
+
+    .m-footer {
+        background-color: $gray-300;
+    }
+}
 </style>
