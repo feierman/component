@@ -1,3 +1,4 @@
+//<!--路径 /src/components/Basic/container/MContainer.vue-->
 // 色彩系统设计
 // 主色体系（橙色调）
 $primary: #ff6a00; // 主橙色
@@ -49,6 +50,12 @@ $space-1: $spacing-unit * 1; // 8px
 $space-2: $spacing-unit * 2; // 16px
 $space-3: $spacing-unit * 3; // 24px
 $space-4: $spacing-unit * 4; // 32px
+
+//默认高度
+$default-height: 60px;
+
+//默认宽度
+$default-width: 300px;
 
 // 容器系统
 $container-max-width: 1200px;
