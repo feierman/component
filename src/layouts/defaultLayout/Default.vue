@@ -1,5 +1,6 @@
 <template>
-<h2>默认布局</h2>
+<Layouts></Layouts>
 </template>
 <script lang="ts" setup>
+import Layouts from '../../components/Basic基础组件/layouts/Layouts.vue';
 </script>
