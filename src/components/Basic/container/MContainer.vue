@@ -40,7 +40,7 @@ const direction = computed(() => {
     const vnodes = slots.default();
     // 检查是否存在 MHeader 或 MFooter 子组件
     const hasHeaderOrFooter = vnodes.some((node) => {
-      // 类型安全检查，确保 node.type 是对象且包含 name 属性
+      // 类型安全检查，确保 node.types 是对象且包含 name 属性
       return (
         node.type &&
         typeof node.type === 'object' &&

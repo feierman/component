@@ -1,16 +1,18 @@
 <!--路径 /src/components/Basic/container/MContainer.vue-->
 <template>
 	<m-container>
-    <m-header ><h1>Header</h1></m-header>
+    <m-header >
+	   
+    </m-header>
         <m-container>
-            <m-aside width="200px">侧边栏</m-aside>
-			      <m-main><h1>Main</h1></m-main>
+	        <m-main>
+		       
+	        </m-main>
 		    </m-container>
 	</m-container>
 </template>
 
 <script setup lang="ts">
-	// 自动导入 m-container
 </script>
 
 <style scoped lang="scss">
@@ -21,14 +23,15 @@
 	}
 	.m-header{
 		height: $default-height-60;
+		background-color: $primary;
 	}
 	.m-aside{
 		width: $default-width;
 	}
 	.m-main{
 		flex: 1;
+		background-color: $bg-light;
 	}
 	.m-footer{
-		background-color: $background-light
 	}
 </style>
