@@ -1,23 +1,22 @@
 //<!--路径 /src/components/Basic/container/MContainer.vue-->
 // 色彩系统设计
-// 主色体系（橙色调）
-$primary: #ff6a00; // 主橙色
-$primary-light: #FF984D; // 浅橙
-$primary-dark: #E65C00; // 深橙
+// 主色体系
+$primary: #ff6a00; // 主橙色，用于按钮、链接等
+$primary-dark: #E65C00; // 深橙，用于 hover 状态
+$primary-light: #FF984D; // 浅橙，用于背景或次级元素
+$secondary: #FFD700; // 金色，用于标签、图标等
 
-// 辅助色体系
-$secondary: #FFD700; // 金色
-$tertiary: #FF4500; // 珊瑚红
-$complementary: #007AFF; // 互补蓝
+//背景
+$background-light: #FFF5E6; // 白天模式
+$background-dark:  #1A1A1A; //黑色模式
 
 // 中性色体系
-$white: #FFFFFF;
-$black: #000000;
-$gray-100: #F5F5F5;
-$gray-200: #E0E0E0;
-$gray-300: #BDBDBD;
-$gray-400: #9E9E9E;
-$gray-500: #757575;
+$white: #FFFFFF; // 背景、文字
+$black: #000000; // 文字、图标
+
+// 灰色体系
+$gray-200: #E0E0E0; // 边框、分隔线
+$gray-500: #757575; // 禁用状态、次级文字
 
 // 文字色体系
 $text-primary: #212121; // 主文字色
@@ -40,61 +39,37 @@ $font-family: 'Noto Sans', sans-serif;
 $font-size-base: 16px;
 $font-size-sm: 14px;
 $font-size-md: 18px;
-$font-size-lg: 24px;
 $line-height-base: 1.6;
 
 // 布局系统设计
+//默认高度60px
+$default-height-60: 60px; //头部 尾部常用
+//默认高度48px
+$default-height-48: 48px; //输入框 按钮 常用
+//默认宽度
+$default-width: 300px;
 // 间距系统
 $spacing-unit: 8px;
 $space-1: $spacing-unit * 1; // 8px
 $space-2: $spacing-unit * 2; // 16px
 $space-3: $spacing-unit * 3; // 24px
-$space-4: $spacing-unit * 4; // 32px
-
-//默认高度
-$default-height: 60px;
-
-//默认宽度
-$default-width: 300px;
-
 // 容器系统
 $container-max-width: 1200px;
-$container-padding: $space-3;
+$container-padding: $space-3;//默认高度
 
 // 视觉特征设计
 // 圆角系统
-$radius-xm: 2px;
+$radius-xm: 2px;  //单选框
 $radius-sm: 4px;
 $radius-md: 8px;
-$radius-lg: 16px;
-$radius-pill: 999px;
+$radius-circle: 50%;  //圆形
 
 // 阴影系统
-$shadow-light: 0 2px 4px rgba(0,0,0,0.1);
-$shadow-medium: 0 4px 12px rgba(0,0,0,0.15);
-$shadow-dark: 0 8px 24px rgba(0,0,0,0.2);
-$focus-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); // 焦点阴影
-
-// 动画和过渡
-$transition-duration: 0.3s;
-$transition-easing: ease-in-out;
-
-// 主题系统设计
-// 暖色系主题
-$theme-warm: (
-        primary: #FF6B00,
-        secondary: #FFD700,
-        background: #FFF5E6,
-        text: #212121
-);
-
-// 冷色系主题
-$theme-cool: (
-        primary: #007AFF,
-        secondary: #4DD0E1,
-        background: #E6F2FF,
-        text: #212121
-);
+$shadow-light: 0 2px 4px rgba(0,0,0,0.1);   //轻阴影 卡片
+$shadow-medium: 0 4px 12px rgba(0,0,0,0.15); // 中阴影
+$shadow-dark: 0 8px 24px rgba(0,0,0,0.2);   // 深阴影
+$focus-shadow-light: 0 0 0 2px rgba(0, 123, 255, 0.5); // 焦点阴影
+$focus-shadow-dark: 0 0 0 2px rgba(255,107,0, 0.5); // 焦点阴影
 
 // 组件设计规范
 // 按钮组件变量
@@ -106,6 +81,114 @@ $button-hover-opacity: 0.9;
 $input-padding: $space-1 $space-2;
 $input-border: 1px solid $gray-200;
 $input-focus-border: 2px solid $primary;
+
+// 动画和过渡
+$transition-duration: 0.3s;
+$transition-easing: ease-in-out;
+
+// 主题系统设计
+// 白天模式
+
+
+$theme-daylight: (
+        primary: #FF6B00,
+        secondary: #FFD700,
+        background: #FFF5E6,
+        text: #212121
+);
+.theme-daylight {
+  @include apply-theme($theme-daylight);  //应用主题
+  //全局样式
+  background-color: $background-light;
+  color: $text-primary;
+  //按钮样式
+  .button-primary {
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    transition: background-color $transition-duration $transition-easing;
+  } &:hover{
+    background-color: darken($primary-dark, 10%);
+  }
+  &:focus{
+    box-shadow: $focus-shadow;
+  }
+  //输入框样式
+  .input {
+    background-color: $white;
+    border: 1px solid $gray-200;
+    padding: $space-1 $space-2;
+    border-radius: $radius-sm;
+    color: $text-primary;
+    &:focus {
+      border-color: $primary;
+      box-shadow: $focus-shadow;
+    }
+  }
+  //次级元素(标签图标)
+  .tag .icon{
+    color: $secondary;
+  }
+  //容器样式
+  .container {
+    max-width: $container-max-width;
+    padding: $container-padding;
+  }
+
+}
+//黑夜模式
+$theeme-night: (
+        primary: #FF6B00,
+        secondary: #FFD700,
+        background: #1A1A1A,
+        text: #e0e0e0
+);
+
+.theme-night {
+    @include apply-theme($theeme-night);
+
+  //全局样式
+  background-color: $background-dark;
+  color: $gray-200;
+
+  //按钮样式
+  .button-primary {
+    background-color: $primary;
+    color: $white;
+    padding: $space-2 $space-3;
+    border-radius: $radius-md;
+    transition: background-color $transition-duration $transition-easing;
+  } &:hover{
+    background-color: lighten($primary, 10%);
+  }
+  &:focus{
+    box-shadow: $focus-shadow-dark;
+  }
+  //输入框样式
+  .input {
+    background-color: $background-dark;
+    border: 1px solid $gray-500;
+    padding: $space-1 $space-2;
+    border-radius: $radius-sm;
+    color: $text-primary;
+    &:focus {
+      border-color: $primary;
+      box-shadow: $focus-shadow-dark;
+    }
+  }
+  //次级元素(标签图标)
+  .tag .icon{
+    color: $secondary;
+  }
+  //容器样式
+  .container {
+    max-width: $container-max-width;
+    padding: $container-padding;
+  }
+}
+
+
+
+
 
 // 响应式设计基础
 @mixin breakpoint($name) {
@@ -144,53 +227,11 @@ $input-focus-border: 2px solid $primary;
   }
 }
 
-// 主题切换实现
-// 定义主题混合宏
-@mixin apply-theme($theme) {
-  --primary-color: map-get($theme, primary);
-  --secondary-color: map-get($theme, secondary);
-  --background-color: map-get($theme, background);
-  --text-color: map-get($theme, text);
-}
 
-// 应用暖色系主题
-.theme-warm {
-  @include apply-theme($theme-warm);
-}
 
-// 应用冷色系主题
-.theme-cool {
-  @include apply-theme($theme-cool);
-}
 
-// 深色模式支持
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #333;
-    --text-color: #fff;
-  }
-}
 
-//图标系统 (示例)
-.icon{
-  width: 24px;
-  height: 24px;
-  fill: $text-primary; //默认图标颜色
-  &.primary{
-    fill: $primary;
-  }
-}
 
-//z-index管理(示例)
-$z-index-modal: 1000;
-$z-index-tooltip: 1100;
 
-.modal{
-  position: fixed;
-  z-index: $z-index-modal;
-}
 
-.tooltip{
-  position: absolute;
-  z-index: $z-index-tooltip;
-}
+

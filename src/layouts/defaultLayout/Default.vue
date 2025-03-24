@@ -1,11 +1,11 @@
 <!--路径 /src/components/Basic/container/MContainer.vue-->
 <template>
 	<m-container>
-        <m-aside width="200px">Aside</m-aside>
+    <m-header ><h1>Header</h1></m-header>
         <m-container>
-            <m-header >Header</m-header>
-			<m-main>Main</m-main>
-		</m-container>
+            <m-aside width="200px">侧边栏</m-aside>
+			      <m-main><h1>Main</h1></m-main>
+		    </m-container>
 	</m-container>
 </template>
 
@@ -15,23 +15,20 @@
 
 <style scoped lang="scss">
 	.m-container {
-        width: 100vw;
-		height: 100vh;
-		gap: $space-1;
+    width: 100vw;
+    height: 100vh;
+		//gap: $space-1;
 	}
 	.m-header{
-		height: $default-height;
-		background-color: $primary;
+		height: $default-height-60;
 	}
 	.m-aside{
 		width: $default-width;
-		background-color: $primary;
 	}
 	.m-main{
 		flex: 1;
-		background-color: $primary;
 	}
 	.m-footer{
-		background-color: $gray-300;
+		background-color: $background-light
 	}
 </style>
