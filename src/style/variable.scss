@@ -1,38 +1,85 @@
 //<!--路径 /src/components/Basic/container/MContainer.vue-->
 // 色彩系统设计
-// 主色体系
-$primary: #ff6a00; // 主橙色，用于按钮、链接等
-$primary-dark: #E65C00; // 深橙，用于 hover 状态
-$primary-light: #FF984D; // 浅橙，用于背景或次级元素
-$secondary: #FFD700; // 金色，用于标签、图标等
+$primary: #ff6a00; // 主橙色，用于按钮、链接等主要交互元素，突出品牌色和高优先级操作
+$primary-dark-2: darken($primary, 20%); // 深橙色，用于按钮悬停（hover）、按下（active）状态，或强调更强的交互反馈
+$primary-light-3: lighten($primary, 20%); // 浅橙色，用于次级按钮背景、表单高亮边框或需要柔和主色的场景
+$primary-light-5: lighten($primary, 30%); // 更浅橙色，用于提示框背景（如警告提示）、次级元素的hover状态
+$primary-light-7: lighten($primary, 40%); // 极浅橙色，用于大面积背景（如卡片hover效果）或微妙的视觉层次
+$primary-light-8: lighten($primary, 45%); // 接近白色的橙色，用于非常淡的背景色（如表格行的hover效果）
+$primary-light-9: lighten($primary, 50%); // 最浅橙色，用于微弱的高亮（如禁用状态下的主色提示）或极淡的装饰性元素
 
-//背景
-$background-light: #FFF5E6; // 白天模式
-$background-dark:  #1A1A1A; //黑色模式
+// 辅助色 - 成功色（Success）
+$success: #52c41a; // 基础绿色，用于成功提示、完成状态的按钮或图标
+$success-dark-2: darken($success, 20%); // 深绿色，用于成功按钮的hover或active状态
+$success-light-3: lighten($success, 20%); // 浅绿色，用于次级成功按钮或成功提示的边框
+$success-light-5: lighten($success, 30%); // 更浅绿色，用于成功提示框背景
+$success-light-7: lighten($success, 40%); // 极浅绿色，用于成功相关的hover背景
+$success-light-8: lighten($success, 45%); // 接近白色的绿色，用于表格行的成功状态高亮
+$success-light-9: lighten($success, 50%); // 最浅绿色，用于成功相关的禁用状态或微弱装饰
 
-// 中性色体系
-$white: #FFFFFF; // 背景、文字
-$black: #000000; // 文字、图标
+// 辅助色 - 错误色（Error）
+$error: #f5222d; // 基础红色，用于错误提示、删除按钮或危险操作
+$error-dark-2: darken($error, 20%); // 深红色，用于错误按钮的hover或active状态
+$error-light-3: lighten($error, 20%); // 浅红色，用于次级错误按钮或错误边框
+$error-light-5: lighten($error, 30%); // 更浅红色，用于错误提示框背景
+$error-light-7: lighten($error, 40%); // 极浅红色，用于错误相关的hover背景
+$error-light-8: lighten($error, 45%); // 接近白色的红色，用于表格行的错误状态高亮
+$error-light-9: lighten($error, 50%); // 最浅红色，用于错误相关的禁用状态或微弱装饰
 
-// 灰色体系
-$gray-200: #E0E0E0; // 边框、分隔线
-$gray-500: #757575; // 禁用状态、次级文字
+// 辅助色 - 警告色（Warning）
+$warning: #E6A23C; // 基础橙黄色，用于警告提示、中等优先级的提醒
+$warning-dark-2: darken($warning, 20%); // 深橙黄色，用于警告按钮的hover或active状态
+$warning-light-3: lighten($warning, 20%); // 浅橙黄色，用于次级警告按钮或警告边框
+$warning-light-5: lighten($warning, 30%); // 更浅橙黄色，用于警告提示框背景
+$warning-light-7: lighten($warning, 40%); // 极浅橙黄色，用于警告相关的hover背景
+$warning-light-8: lighten($warning, 45%); // 接近白色的橙黄色，用于表格行的警告状态高亮
+$warning-light-9: lighten($warning, 50%); // 最浅橙黄色，用于警告相关的禁用状态或微弱装饰
 
-// 文字色体系
-$text-primary: #212121; // 主文字色
-$text-secondary: #424242; // 次文字色
-$text-disabled: #757575; // 禁用文字色
+// 辅助色 - 信息色（Info）
+$info: #909399; // 基础灰色，用于中性信息提示、低优先级的状态
+$info-dark-2: darken($info, 20%); // 深灰色，用于信息按钮的hover或active状态
+$info-light-3: lighten($info, 20%); // 浅灰色，用于次级信息按钮或信息边框
+$info-light-5: lighten($info, 30%); // 更浅灰色，用于信息提示框背景
+$info-light-7: lighten($info, 40%); // 极浅灰色，用于信息相关的hover背景
+$info-light-8: lighten($info, 45%); // 接近白色的灰色，用于表格行的信息状态高亮
+$info-light-9: lighten($info, 50%); // 最浅灰色，用于信息相关的禁用状态或微弱装饰
 
-// 状态色体系
-$success: #4CAF50; // 成功色
-$warning: #FFEB3B; // 警告色
-$error: #F44336; // 错误色
-$info: #2196F3; // 信息色
+// 中性色 - 文字颜色
+$text-primary: #303133; // 主文字颜色，用于标题、正文等高优先级文本内容
+$text-regular: #606266; // 常规文字颜色，用于次级正文或普通描述文本
+$text-secondary: #909399; // 次要文字颜色，用于辅助说明、注释或低优先级文本
+$text-placeholder: #c0c4cc; // 占位符文字颜色，用于输入框占位符或禁用状态的文本
+$text-disabled: #d4d7de; // 禁用文字颜色，用于不可用状态的文本提示
 
-// 透明度变量
-$opacity-light: 0.1;
-$opacity-medium: 0.5;
-$opacity-dark: 0.8;
+// 中性色 - 背景颜色
+$bg-base: #ffffff; // 默认背景色，用于页面主背景、卡片或面板的默认状态
+$bg-light: #f5f7fa; // 浅灰背景色，用于次级区域背景或微弱层次区分
+$bg-gray: #e4e7ed; // 中灰背景色，用于表格表头、分割区域或中性高亮背景
+$bg-dark: #dcdfe6; // 深灰背景色，用于深色背景元素或hover状态下的微妙变化
+$bg-disabled: #f0f2f5; // 禁用背景色，用于不可用状态的按钮或区域背景
+
+// 中性色 - 边框颜色
+$border-base: #dcdfe6; // 默认边框颜色，用于卡片、输入框、表格的默认分隔线
+$border-light: #e4e7ed; // 浅边框颜色，用于次级分隔线或微弱边界
+$border-dark: #c0c4cc; // 深边框颜色，用于强调边框或高对比度的分隔
+$border-hover: #b3b8c0; // 边框悬停颜色，用于交互元素（如输入框聚焦）的边框
+$border-disabled: #ebeef5; // 禁用边框颜色，用于不可用状态的边框
+
+// 中性色 - 阴影颜色
+$shadow-light: rgba(0, 0, 0, 0.1); // 浅阴影，用于卡片或按钮的微弱浮起效果
+$shadow-regular: rgba(0, 0, 0, 0.15); // 常规阴影，用于中等浮起效果（如悬停状态）
+$shadow-dark: rgba(0, 0, 0, 0.25); // 深阴影，用于显著浮起效果（如模态框、弹窗）
+
+// 中性色 - 填充颜色
+$fill-base: #f0f2f5; // 默认填充色，用于按钮或标签的默认背景
+$fill-light: #f5f7fa; // 浅填充色，用于次级按钮或微弱填充状态
+$fill-hover: #e4e7ed; // 填充悬停色，用于交互元素的hover状态
+$fill-disabled: #f5f7fa; // 禁用填充色，用于不可用状态的填充背景
+
+// 中性色 - 遮罩颜色
+$overlay-light: rgba(0, 0, 0, 0.2); // 浅遮罩颜色，用于轻量级遮罩（如禁用层）
+$overlay-regular: rgba(0, 0, 0, 0.4); // 常规遮罩颜色，用于模态框或弹窗背景
+$overlay-dark: rgba(0, 0, 0, 0.6); // 深遮罩颜色，用于强调遮罩效果（如重要弹窗）
 
 // 字体系统设计
 $font-family: 'Noto Sans', sans-serif;
@@ -78,113 +125,12 @@ $button-radius: $radius-md;
 $button-hover-opacity: 0.9;
 
 // 输入框组件变量
-$input-padding: $space-1 $space-2;
-$input-border: 1px solid $gray-200;
-$input-focus-border: 2px solid $primary;
+
 
 // 动画和过渡
 $transition-duration: 0.3s;
 $transition-easing: ease-in-out;
 
-// 主题系统设计
-// 白天模式
-
-
-$theme-daylight: (
-        primary: #FF6B00,
-        secondary: #FFD700,
-        background: #FFF5E6,
-        text: #212121
-);
-.theme-daylight {
-  @include apply-theme($theme-daylight);  //应用主题
-  //全局样式
-  background-color: $background-light;
-  color: $text-primary;
-  //按钮样式
-  .button-primary {
-    padding: $space-2 $space-3;
-    border-radius: $radius-md;
-    transition: background-color $transition-duration $transition-easing;
-  } &:hover{
-    background-color: darken($primary-dark, 10%);
-  }
-  &:focus{
-    box-shadow: $focus-shadow;
-  }
-  //输入框样式
-  .input {
-    background-color: $white;
-    border: 1px solid $gray-200;
-    padding: $space-1 $space-2;
-    border-radius: $radius-sm;
-    color: $text-primary;
-    &:focus {
-      border-color: $primary;
-      box-shadow: $focus-shadow;
-    }
-  }
-  //次级元素(标签图标)
-  .tag .icon{
-    color: $secondary;
-  }
-  //容器样式
-  .container {
-    max-width: $container-max-width;
-    padding: $container-padding;
-  }
-
-}
-//黑夜模式
-$theeme-night: (
-        primary: #FF6B00,
-        secondary: #FFD700,
-        background: #1A1A1A,
-        text: #e0e0e0
-);
-
-.theme-night {
-    @include apply-theme($theeme-night);
-
-  //全局样式
-  background-color: $background-dark;
-  color: $gray-200;
-
-  //按钮样式
-  .button-primary {
-    background-color: $primary;
-    color: $white;
-    padding: $space-2 $space-3;
-    border-radius: $radius-md;
-    transition: background-color $transition-duration $transition-easing;
-  } &:hover{
-    background-color: lighten($primary, 10%);
-  }
-  &:focus{
-    box-shadow: $focus-shadow-dark;
-  }
-  //输入框样式
-  .input {
-    background-color: $background-dark;
-    border: 1px solid $gray-500;
-    padding: $space-1 $space-2;
-    border-radius: $radius-sm;
-    color: $text-primary;
-    &:focus {
-      border-color: $primary;
-      box-shadow: $focus-shadow-dark;
-    }
-  }
-  //次级元素(标签图标)
-  .tag .icon{
-    color: $secondary;
-  }
-  //容器样式
-  .container {
-    max-width: $container-max-width;
-    padding: $container-padding;
-  }
-}
 
 
 
@@ -201,21 +147,7 @@ $theeme-night: (
   }
 }
 
-// 使用示例
-// 应用主色
-.button-primary {
-  background-color: $primary;
-  color: $white;
-  border-radius: $radius-md;
-  padding: $button-padding;
 
-  &:hover {
-    background-color: $primary-dark;
-  }
-  &:focus{
-    box-shadow: $focus-shadow;
-  }
-}
 
 // 响应式布局
 .container {

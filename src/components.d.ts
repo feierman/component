@@ -8,16 +8,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Aside: typeof import('./components/Basic基础组件/container/Aside.vue')['default']
-    Container: typeof import('./components/Basic基础组件/container/Container.vue')['default']
-    Footer: typeof import('./components/Basic基础组件/container/Footer.vue')['default']
-    Header: typeof import('./components/Basic基础组件/container/Header.vue')['default']
     Layouts: typeof import('./components/Basic/layouts/Layouts.vue')['default']
-    Main: typeof import('./components/Basic基础组件/container/Main.vue')['default']
     MAside: typeof import('./components/Basic/container/MAside.vue')['default']
     MContainer: typeof import('./components/Basic/container/MContainer.vue')['default']
     MFooter: typeof import('./components/Basic/container/MFooter.vue')['default']
     MHeader: typeof import('./components/Basic/container/MHeader.vue')['default']
     MMain: typeof import('./components/Basic/container/MMain.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }
