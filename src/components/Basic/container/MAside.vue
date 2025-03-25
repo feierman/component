@@ -48,8 +48,8 @@ defineProps({
   align-items: center;
   justify-content: center;
   width: v-bind(width);
-  background-color: $background-light;
-  padding: $space-1;
+  background-color: $bg-disabled;
+  padding:$spacing-sm ;
 }
 </style>
 ```

@@ -67,7 +67,7 @@ const direction = computed(() => {
 .m-container {
   display: flex;
   height: 100vh;
-  gap: $space-1;
+  gap: $spacing-xxs;
   
   /**
    * 垂直排列样式

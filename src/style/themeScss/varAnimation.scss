@@ -1,0 +1,15 @@
+// 动画时长
+$transition-duration-fast: 0.2s; // 快速动画
+$transition-duration-normal: 0.3s; // 默认动画时长
+$transition-duration-slow: 0.5s; // 慢速动画
+
+// 动画缓动函数
+$transition-easing-ease: ease; // 默认缓动
+$transition-easing-in: ease-in; // 渐入
+$transition-easing-out: ease-out; // 渐出
+$transition-easing-in-out: ease-in-out; // 渐入渐出
+
+// 通用过渡效果
+$transition-base: all $transition-duration-normal $transition-easing-in-out; // 默认过渡效果
+$transition-fade: opacity $transition-duration-fast $transition-easing-ease; // 淡入淡出效果
+$transition-transform: transform $transition-duration-normal $transition-easing-in-out; // 变换效果

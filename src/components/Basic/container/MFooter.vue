@@ -41,7 +41,7 @@ defineProps({
  */
 .m-footer {
   height: v-bind(height);
-  padding: $space-1;
+  padding: $spacing-sm;
   display: flex;
   align-items: center;
   justify-content: center;

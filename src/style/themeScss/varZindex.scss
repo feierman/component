@@ -1,0 +1,8 @@
+// --------------- Z-index 层级变量 ---------------
+// 层级管理
+$z-index-base: 1; // 默认层级
+$z-index-sticky: 10; // 粘性元素（如表头）
+$z-index-dropdown: 100; // 下拉菜单
+$z-index-modal: 1000; // 模态框
+$z-index-tooltip: 1500; // 提示框
+$z-index-toast: 2000; // 通知或toast

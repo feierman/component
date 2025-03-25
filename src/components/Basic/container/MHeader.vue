@@ -48,7 +48,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   height: v-bind(height);
-  background-color: $primary-light-5;
-  padding: $space-1;
+  background-color:$primary;
+  padding: $spacing-sm;
 }
 </style>
