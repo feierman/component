@@ -1,11 +1,12 @@
-//<!--路径 /src/components/Basic/container/MContainer.vue-->
-@import './themeScss/varSpacing';
-@import 'themeScss/varFont';
-@import './themeScss/varAnimation';
-@import './themeScss/varColor';
-@import './themeScss/varRadius';
-@import './themeScss/varSize';
-@import './themeScss/varZindex';
+//<!--路径 /src/style/variable.scss -->
+@forward '@/style/themeScss/varColor.scss' ;
+@forward '@/style/themeScss/varFont.scss';
+
+@forward '@/style/themeScss/varSpacing.scss' ;
+@forward '@/style/themeScss/varAnimation.scss' ;
+@forward '@/style/themeScss/varRadius.scss' ;
+@forward '@/style/themeScss/varSize.scss' ;
+@forward '@/style/themeScss/varZindex.scss' ;
 
 
 

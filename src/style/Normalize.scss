@@ -1,14 +1,15 @@
-
+// src/style/Normalize.scss
 // 全局样式初始化，基于主题变量
 // 根字体大小
 
 // 全局根样式
+@use '@/style/variable.scss' as m;
 :root {
-	font-size: $font-size-h3; // 默认 16px
-	font-family: $font-family-base; // 使用主题定义的默认字体栈
-	color: $text-primary; // 默认文字颜色
-	line-height: $line-height-base; // 默认行高
-	background-color: $bg-base; // 默认背景色
+	font-size: m.$font-size-h3; // 默认 16px
+	font-family: m.$font-family-base; // 使用主题定义的默认字体栈
+	color: m.$text-primary; // 默认文字颜色
+	line-height: m.$line-height-base; // 默认行高
+	background-color: m.$bg-base; // 默认背景色
 }
 
 // 全局应用 box-sizing: border-box
@@ -30,8 +31,8 @@ html {
 body {
 	margin: 0; // 移除默认外边距
 	padding: 0; // 移除默认内边距
-	font-size: $font-size-base; // 使用主题字体大小
-	font-weight: $font-weight-regular; // 默认字体粗细
+	font-size: m.$font-size-base; // 使用主题字体大小
+	font-weight: m.$font-weight-regular; // 默认字体粗细
 	overflow-x: hidden; // 防止水平溢出
 }
 
@@ -43,20 +44,20 @@ main {
 // 标题样式
 h1, h2, h3, h4, h5, h6 {
 	margin: 0; // 移除默认外边距
-	font-weight: $font-weight-bold; // 默认使用粗体
+	font-weight: m.$font-weight-bold; // 默认使用粗体
 }
 
 h1 {
-	font-size: $font-size-h1; // 24px
-	line-height: $line-height-tight; // 紧凑行高
+	font-size: m.$font-size-h1; // 24px
+	line-height: m.$line-height-tight; // 紧凑行高
 }
 
 h2 {
-	font-size: $font-size-h2; // 20px
+	font-size: m.$font-size-h2; // 20px
 }
 
 h3 {
-	font-size: $font-size-h3; // 16px
+	font-size: m.$font-size-h3; // 16px
 }
 
 // 分隔线
@@ -65,14 +66,14 @@ hr {
 	height: 0;
 	overflow: visible;
 	border: 0;
-	border-top: 1px solid $border-base; // 使用主题边框颜色
-	margin: $spacing-md 0; // 默认间距
+	border-top: 1px solid m.$border-base; // 使用主题边框颜色
+	margin: m.$spacing-md 0; // 默认间距
 }
 
 // 预格式化文本
 pre {
-	font-family: $font-family-mono; // 使用等宽字体
-	font-size: $font-size-base;
+	font-family: m.$font-family-mono; // 使用等宽字体
+	font-size: m.$font-size-base;
 	white-space: pre-wrap; // 支持换行
 	margin: 0;
 }
@@ -80,12 +81,12 @@ pre {
 // 链接样式
 a {
 	background-color: transparent;
-	color: $primary; // 使用主题主色
+	color: m.$primary; // 使用主题主色
 	text-decoration: none; // 移除默认下划线
-	transition: $transition-base; // 添加过渡效果
+	transition: m.$transition-base; // 添加过渡效果
 
 	&:hover {
-		color: $primary-dark-2; // 深色悬停效果
+		color: m.$primary-dark-2; // 深色悬停效果
 		text-decoration: underline; // 悬停时显示下划线
 	}
 }
@@ -99,23 +100,23 @@ abbr[title] {
 // 粗体和强调
 b,
 strong {
-	font-weight: $font-weight-bold; // 使用主题粗体
+	font-weight: m.$font-weight-bold; // 使用主题粗体
 }
 
 // 代码相关标签
 code,
 kbd,
 samp {
-	font-family: $font-family-mono; // 等宽字体
-	font-size: $font-size-base;
-	background-color: $bg-light; // 浅灰背景
-	padding: $spacing-xxs $spacing-xs; // 小间距
-	border-radius: $border-radius-sm; // 小圆角
+	font-family: m.$font-family-mono; // 等宽字体
+	font-size: m.$font-size-base;
+	background-color: m.$bg-light; // 浅灰背景
+	padding: m.$spacing-xxs m.$spacing-xs; // 小间距
+	border-radius: m.$border-radius-sm; // 小圆角
 }
 
 // 小号文本
 small {
-	font-size: $font-size-sm; // 小号字体
+	font-size: m.$font-size-sm; // 小号字体
 }
 
 // 上标和下标
@@ -151,11 +152,11 @@ select,
 textarea {
 	font-family: inherit; // 继承字体
 	font-size: 100%; // 默认字体大小
-	line-height: $line-height-base; // 默认行高
+	line-height: m.$line-height-base; // 默认行高
 	margin: 0; // 移除默认外边距
-	padding: $spacing-xs $spacing-sm; // 默认内边距
-	border-radius: $border-radius-md; // 默认圆角
-	border: 1px solid $border-base; // 默认边框
+	padding: m.$spacing-xs m.$spacing-sm; // 默认内边距
+	border-radius: m.$border-radius-md; // 默认圆角
+	border: 1px solid m.$border-base; // 默认边框
 }
 
 button,
@@ -173,18 +174,18 @@ select {
 [type="submit"],
 button {
 	-webkit-appearance: button; // 浏览器默认样式
-	background-color: $fill-base; // 默认填充色
-	color: $text-regular; // 默认文字颜色
+	background-color: m.$fill-base; // 默认填充色
+	color: m.$text-regular; // 默认文字颜色
 	cursor: pointer; // 鼠标指针
-	transition: $transition-base;
+	transition: m.$transition-base;
 
 	&:hover {
-		background-color: $fill-hover; // 悬停填充色
+		background-color: m.$fill-hover; // 悬停填充色
 	}
 
 	&:disabled {
-		background-color: $bg-disabled; // 禁用背景
-		color: $text-disabled; // 禁用文字
+		background-color: m.$bg-disabled; // 禁用背景
+		color: m.$text-disabled; // 禁用文字
 		cursor: not-allowed; // 禁用指针
 	}
 }
@@ -202,14 +203,14 @@ button::-moz-focus-inner {
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring,
 button:-moz-focusring {
-	outline: 1px dotted $border-hover; // 焦点边框
+	outline: 1px dotted m.$border-hover; // 焦点边框
 }
 
 // 字段集
 fieldset {
-	padding: $spacing-sm $spacing-md $spacing-md; // 内边距
-	border: 1px solid $border-light; // 浅边框
-	border-radius: $border-radius-md; // 默认圆角
+	padding: m.$spacing-sm m.$spacing-md m.$spacing-md; // 内边距
+	border: 1px solid m.$border-light; // 浅边框
+	border-radius: m.$border-radius-md; // 默认圆角
 }
 
 legend {
@@ -217,7 +218,7 @@ legend {
 	color: inherit;
 	display: table;
 	max-width: 100%;
-	padding: 0 $spacing-sm; // 内边距
+	padding: 0 m.$spacing-sm; // 内边距
 	white-space: normal;
 }
 

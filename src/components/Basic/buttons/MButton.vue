@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineEmits, defineExpose, useSlots } from 'vue';
+import { computed,  useSlots } from 'vue';
 import type { Component } from 'vue';
 // import Loading from './icons/Loading.vue'; // 假设默认加载图标
 
@@ -45,7 +45,7 @@ const props = withDefaults(
     loading?: boolean;
     loadingIcon?: string | Component;
     disabled?: boolean;
-    icon?: string | Component;
+    icon?: string ;
     autofocus?: boolean;
     nativeType?: 'button' | 'submit' | 'reset';
     autoInsertSpace?: boolean;
@@ -164,50 +164,52 @@ function darkenColor(color: string, amount: number): string {
 </script>
 
 <style lang="scss" scoped>
-// 样式保持不变
+@use "@/style/variable.scss" as m;
+
 .m-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-sm $spacing-md;
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  font-weight: $font-weight-medium;
-  border: 1px solid $border-base;
-  border-radius: $border-radius-md;
-  background-color: $bg-base;
-  color: $text-regular;
+  padding: m.$spacing-xs m.$spacing-md;
+  font-family: m.$font-family-base;
+  font-size: m.$font-size-base;
+  font-weight: m.$font-weight-regular;
+  border: 1px solid m.$border-base;
+  border-radius: m.$border-radius-md;
+  background-color: m.$bg-light;
+  color: m.$text-regular;
   cursor: pointer;
-  transition: $transition-base;
+  transition: m.$transition-base;
   outline: none;
   
+    &:hover {
+      border-color: m.$primary-light-9;
+      background-color: m.$fill-light;
+      color: m.$primary-light-3;
+    }
+  // 大号按钮样式
   &--large {
-    height: $height-lg;
-    padding: $spacing-md $spacing-lg;
-    font-size: $font-size-lg;
+    height: m.$height-lg;
+    padding: m.$spacing-lg m.$spacing-lg;
+    font-size: m.$font-size-lg;
   }
-  
+  //小号按钮样式
   &--small {
-    height: $height-sm;
-    padding: $spacing-xs $spacing-sm;
-    font-size: $font-size-sm;
-  }
-  
-  &:hover {
-    border-color: $border-hover;
-    background-color: $fill-hover;
+    height: m.$height-md;
+    padding: m.$spacing-xs m.$spacing-sm;
+    font-size: m.$font-size-sm;
   }
   
   &:active {
-    background-color: $fill-light;
+    background-color: m.$fill-light;
   }
   
   &.is-disabled {
     cursor: not-allowed;
-    opacity: 0.6;
-    background-color: $bg-disabled;
-    border-color: $border-disabled;
-    color: $text-disabled;
+    opacity: 0.5;
+    background-color: m.$bg-disabled;
+    border-color: m.$border-disabled;
+    color: m.$text-disabled;
   }
   
   &.is-round {
@@ -243,16 +245,63 @@ function darkenColor(color: string, amount: number): string {
       color: $primary;
       background-color: $fill-hover;
     }
+    &.m-button--primary {
+      color: m.$primary;
+    }
+    &.m-button--success {
+      color: m.$success;
+    }
+    &.m-button--warning {
+      color: m.$warning;
+    }
+    &.m-button--danger {
+      color: m.$danger;
+    }
+    &.m-button--info {
+      color: m.$info;
+    }
+    
   }
   
   &.is-link {
     border: none;
-    background-color: transparent;
-    color: $primary;
+    background: none;
+    color: m.$text-primary;
     
     &:hover {
-      color: $primary-dark-2;
-      text-decoration: underline;
+      color: m.$text-secondary;
+      background: none;
+    }
+    //主色调 primary
+    &.m-button--primary {
+      color: m.$primary;
+      &:hover {
+        color: m.$primary-light-7;
+      }
+    }
+    &.m-button--success {
+      color: m.$success;
+      &:hover {
+        color: m.$success-light-7;
+      }
+    }
+    &.m-button--warning {
+      color: m.$warning;
+      &:hover {
+        color: m.$warning-light-7;
+      }
+    }
+    &.m-button--danger {
+      color: m.$danger;
+      &:hover {
+        color: m.$danger-light-7;
+      }
+    }
+    &.m-button--info {
+      color: m.$info;
+      &:hover {
+        color: m.$info-light-7;
+      }
     }
   }
   
@@ -272,35 +321,37 @@ function darkenColor(color: string, amount: number): string {
   }
   
   &--primary {
-    background-color: var(--m-button-bg-color, $primary);
+    background-color: var(--m-button-bg-color, m.$primary);
     border-color: var(--m-button-border-color, $primary);
     color: var(--m-button-text-color, $bg-base);
     
     &:hover {
-      background-color: var(--m-button-hover-bg-color, $primary-dark-2);
-      border-color: var(--m-button-hover-bg-color, $primary-dark-2);
+      background-color: var(--m-button-hover-bg-color, m.$primary-light-5);
+      border-color: var(--m-button-hover-bg-color, m.$primary-light-9);
+      color: var(--m-button-hover-text-color, m.$bg-base);
     }
     
     &.is-plain {
-      background-color: $primary-light-9;
-      border-color: $primary-light-5;
-      color: $primary;
+      background-color: m.$primary-light-9;
+      border-color: m.$primary-light-5;
+      color: m.$primary;
       
       &:hover {
-        background-color: $primary-light-7;
-        border-color: $primary-light-3;
+        background-color: m.$primary-light-7;
+        border-color: m.$primary-light-3;
       }
     }
   }
   
   &--success {
-    background-color: var(--m-button-bg-color, $success);
-    border-color: var(--m-button-border-color, $success);
-    color: var(--m-button-text-color, $bg-base);
+    background-color: var(--m-button-bg-color, m.$success);
+    border-color: var(--m-button-border-color, m.$success);
+    color: var(--m-button-text-color,  m.$bg-base);
     
     &:hover {
       background-color: var(--m-button-hover-bg-color, $success-dark-2);
-      border-color: var(--m-button-hover-bg-color, $success-dark-2);
+      border-color: var(--m-button-hover-bg-color, m.$success-dark-2);
+      color: var(--m-button-hover-text-color, m.$bg-base);
     }
   }
   
@@ -312,17 +363,19 @@ function darkenColor(color: string, amount: number): string {
     &:hover {
       background-color: var(--m-button-hover-bg-color, $warning-dark-2);
       border-color: var(--m-button-hover-bg-color, $warning-dark-2);
+      color: var(--m-button-hover-text-color, $bg-base);
     }
   }
   
   &--danger {
-    background-color: var(--m-button-bg-color, $error);
-    border-color: var(--m-button-border-color, $error);
+    background-color: var(--m-button-bg-color, $danger);
+    border-color: var(--m-button-border-color, $danger);
     color: var(--m-button-text-color, $bg-base);
     
     &:hover {
-      background-color: var(--m-button-hover-bg-color, $error-dark-2);
-      border-color: var(--m-button-hover-bg-color, $error-dark-2);
+      background-color: var(--m-button-hover-bg-color, $danger-dark-2);
+      border-color: var(--m-button-hover-bg-color, $danger-dark-2);
+      color: var(--m-button-hover-text-color, $bg-base);
     }
   }
   
@@ -334,6 +387,7 @@ function darkenColor(color: string, amount: number): string {
     &:hover {
       background-color: var(--m-button-hover-bg-color, $info-dark-2);
       border-color: var(--m-button-hover-bg-color, $info-dark-2);
+      color: var(--m-button-hover-text-color, $bg-base);
     }
   }
 }

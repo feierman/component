@@ -58,6 +58,7 @@ const direction = computed(() => {
 
 <!-- 组件样式 -->
 <style lang="scss" scoped>
+@use "@/style/variable.scss" as v;
 /**
  * 布局容器样式
  * - display: flex; 使用 Flexbox 布局
@@ -66,8 +67,8 @@ const direction = computed(() => {
  */
 .m-container {
   display: flex;
+  width: 100vw;
   height: 100vh;
-  gap: $spacing-xxs;
   
   /**
    * 垂直排列样式

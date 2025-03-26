@@ -1,6 +1,7 @@
 //路径 /src/style/varShadow.scss
 // --------------- 阴影相关变量（已定义在颜色中，补充样式） ---------------
-$box-shadow-light: 0 2px 4px $shadow-light; // 轻阴影，用于微弱浮起
-$box-shadow-regular: 0 4px 8px $shadow-regular; // 常规阴影，用于卡片或按钮
-$box-shadow-dark: 0 6px 12px $shadow-dark; // 深阴影，用于弹窗或模态框
-$box-shadow-inset: inset 0 2px 4px $shadow-light; // 内阴影，用于凹陷效果
+@use '@/style/variable.scss' as m;
+$box-shadow-light: 0 2px 4px m.$shadow-light; // 轻阴影，用于微弱浮起
+$box-shadow-regular: 0 4px 8px m.$shadow-regular; // 常规阴影，用于卡片或按钮
+$box-shadow-dark: 0 6px 12px m.$shadow-dark; // 深阴影，用于弹窗或模态框
+$box-shadow-inset: inset 0 2px 4px m.$shadow-light; // 内阴影，用于凹陷效果

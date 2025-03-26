@@ -1,15 +1,35 @@
 // 动画时长
-$transition-duration-fast: 0.2s; // 快速动画
-$transition-duration-normal: 0.3s; // 默认动画时长
-$transition-duration-slow: 0.5s; // 慢速动画
+$duration:(
+    fast:0.2s,
+    normal:0.3s,
+    slow:0.5s
+);
+//动画缓动函数
+$easing:(
+    default:ease,
+    in:ease-in,
+    out:ease-out,
+    in-out:ease-in-out
+);
+//基本过度效果
+$transition:(
+    base:all $duration(normal) $easing(in-out),
+    fade:opacity $duration(fast) $easing(default),
+    transform:transform $duration(normal) $easing(in-out)
+);
 
-// 动画缓动函数
-$transition-easing-ease: ease; // 默认缓动
-$transition-easing-in: ease-in; // 渐入
-$transition-easing-out: ease-out; // 渐出
-$transition-easing-in-out: ease-in-out; // 渐入渐出
+$transition-base: all map-get($duration, normal) map-get($easing, in-out);
+$transition-fade: opacity map-get($duration, fast) map-get($easing, default);
+$transition-transform: transform map-get($duration, normal) map-get($easing, in-out);
+$transition-slide: transform map-get($duration, normal) map-get($easing, out);
+$transition-color: background-color map-get($duration, fast) map-get($easing, default);
 
-// 通用过渡效果
-$transition-base: all $transition-duration-normal $transition-easing-in-out; // 默认过渡效果
-$transition-fade: opacity $transition-duration-fast $transition-easing-ease; // 淡入淡出效果
-$transition-transform: transform $transition-duration-normal $transition-easing-in-out; // 变换效果
+// 自定义过渡函数
+@function transition($property, $speed: normal, $curve: in-out) {
+  @return $property map-get($duration, $speed) map-get($easing, $curve);
+}
+
+// 多属性过渡函数
+@function multi-transition($transitions...) {
+  @return $transitions;
+}

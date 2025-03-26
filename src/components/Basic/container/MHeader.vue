@@ -11,7 +11,6 @@
 
 <!-- 组件逻辑 -->
 <script setup lang="ts">
-import { defineProps, defineOptions } from 'vue';
 
 /**
  * 设置组件选项
@@ -48,7 +47,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   height: v-bind(height);
-  background-color:$primary;
+  background-color: $primary;
   padding: $spacing-sm;
 }
 </style>

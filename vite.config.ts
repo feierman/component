@@ -7,7 +7,8 @@ export default defineConfig({
         vue(),
         Components({
             dirs:[
-                'src/components'
+                'src/components',
+                'src/views'
             ],
             dts: 'src/components.d.ts'
         }),

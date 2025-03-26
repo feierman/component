@@ -11,8 +11,6 @@
 
 <!-- 组件逻辑 -->
 <script setup lang="ts">
-import { defineProps, defineOptions } from 'vue';
-
 /**
  * 设置组件名称，用于父组件（如 m-container）动态检测
  * 名称必须与父组件中检查的名称一致（例如 MAside）
