@@ -11,7 +11,6 @@
 
 <!-- 组件逻辑 -->
 <script setup lang="ts">
-import { defineOptions } from 'vue';
 
 /**
  * 设置组件选项
@@ -31,9 +30,8 @@ defineOptions({
  */
 .m-main {
   flex: 1;
-  background-color:$primary;
+  background-color: $primary;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 </style>

@@ -8,14 +8,15 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Button: typeof import('./views/buttons/Button.vue')['default']
     Layouts: typeof import('./components/Basic/layouts/Layouts.vue')['default']
     Main: typeof import('./components/Basic基础组件/container/Main.vue')['default']
     MAside: typeof import('./components/Basic/container/MAside.vue')['default']
-    Mbutton: typeof import('./components/Basic/buttons/Mbutton.vue')['default']
     MButton: typeof import('./components/Basic/buttons/MButton.vue')['default']
     MContainer: typeof import('./components/Basic/container/MContainer.vue')['default']
     MFooter: typeof import('./components/Basic/container/MFooter.vue')['default']
     MHeader: typeof import('./components/Basic/container/MHeader.vue')['default']
+    MIcon: typeof import('./components/Basic/micon/MIcon.vue')['default']
     MMain: typeof import('./components/Basic/container/MMain.vue')['default']
   }
 }

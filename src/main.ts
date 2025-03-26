@@ -1,5 +1,5 @@
 import './style/Normalize.scss'
-
+import './assets/fonts/iconfont.css'
 import { createApp } from 'vue'
 
 import App from './App.vue'

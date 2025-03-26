@@ -11,8 +11,6 @@
 
 <!-- 组件逻辑 -->
 <script setup lang="ts">
-import { defineProps, defineOptions } from 'vue';
-
 /**
  * 设置组件选项
  * - name: 设置组件名称为 MFooter，用于父组件（如 m-container）动态检测

@@ -1,12 +1,12 @@
 <!--路径 /src/components/Basic/container/MContainer.vue-->
 <template>
   <m-container>
-    <m-header></m-header>
+    <m-header>
+      <span>ui 组件库</span>
+    </m-header>
     <m-container>
-      <m-aside></m-aside>
       <m-main>
-        <m-button  text>默认</m-button>
-        <m-button  size="" >中文</m-button>
+        <Button />
       </m-main>
     </m-container>
   </m-container>
@@ -17,26 +17,28 @@
 </script>
 
 <style scoped lang="scss">
+@use '@/style/variable.scss' as m;
 	.m-container {
-    width: 100vw;
-    height: 100vh;
-		gap: $spacing-sm;
+    //动态绑定高度 100vh-60px
+    height: calc(100vh - 60px);
+		gap: m.$spacing-sm;
 	}
 	.m-header{
-		height: $height-lg;
-		background-color: $primary-light-3;
+		height: m.$height-xl;
+		background-color: m.$primary-light-3;
     span {
-      color: $text-primary;
-      font: $font-weight-bold $font-size-lg $font-family-base;
+      color: m.$text-primary;
+      font: m.$font-weight-bold m.$font-size-lg m.$font-family-base;
       
     }
 	}
 	.m-aside{
-		width: $width-sidebar;
+		width: m.$width-sidebar;
 	}
 	.m-main{
 		flex: 1;
-		background-color: $bg-light;
+		background-color: m.$bg-light;
+        overflow: auto;
 	}
 
 </style>
