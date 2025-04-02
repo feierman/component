@@ -19,5 +19,6 @@ import Header from "@/components/header/Header.vue";
   }
   .a-layout-header,.a-layout-footer{
     background-color: $bg-base;
+
   }
 </style>

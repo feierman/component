@@ -1,97 +1,82 @@
 <template>
-    <a-row>
-        <a-col :xs="{span:24}" :sm="{span:3}" :md="{span:3}" :lg="{span:3}" :xl="{span:3}" :xxl="{span:3}" class="logo">
-            <router-link to="/">
-                <a-image
-                    src="https://static.vecteezy.com/system/resources/previews/022/227/364/original/openai-chatgpt-logo-icon-free-png.png"
-                    :width="50" :height="50" :preview="false"></a-image>
-            </router-link>
-        </a-col>
-        <a-col :xs="{ span: 24 }" :sm="{span:18 }" :md="{span:18 , offset:3}" :lg="{span:18 , offset:3}"
-            :xl="{span:18 , offset:3}" :xxl="{span:18 , offset:3}" class="menu">
-            <a-menu v-model="current" :items="items" mode="horizontal"></a-menu>
-            <!-- <a-menu v-model:selectedKeys="current" mode="horizontal" :items="items" /> -->
-        </a-col>
-    </a-row>
+  <a-row class="nav-bar">
+    <!-- LOGO -->
+    <a-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4" class="logo">
+      <router-link to="/">
+        <a-image
+            src="https://static.vecteezy.com/system/resources/previews/022/227/364/original/openai-chatgpt-logo-icon-free-png.png"
+            :width="50"
+            :height="50"
+            :preview="false"
+        />
+      </router-link>
+    </a-col>
+
+    <!-- 大屏幕菜单 -->
+    <a-col :xs="0" :sm="0" :md="6" :lg="6" :xl="6"  class="desktop-menu">
+      <a-menu v-model:selectedKeys="selectedKeys" mode="horizontal" :items="menuItems" />
+    </a-col>
+
+    <!-- 小屏幕汉堡按钮 -->
+    <a-col :xs="1" :sm="1" :md="0" :lg="0" :xl="0" class="mobile-menu">
+      <MenuOutlined @click="showDrawer" class="hamburger-icon" />
+    </a-col>
+  </a-row>
+
+  <!-- 抽屉菜单 -->
+  <a-drawer v-model:open="drawerVisible" title="导航栏" placement="right" :width="260" :closable="false">
+    <a-menu v-model:selectedKeys="selectedKeys" mode="vertical" :items="menuItems" @click="closeDrawer" />
+  </a-drawer>
 </template>
 
+
 <script setup lang="ts">
-import { MenuProps } from 'ant-design-vue/es/menu';
-import { h, ref } from 'vue';
+import { ref } from 'vue';
+import { MenuProps } from 'ant-design-vue';
+import { MenuOutlined } from '@ant-design/icons-vue';
 
-const current = ref<string[]>(['home']);
-const items = ref<(MenuProps['items'])>([
-    {
-        key: 'home',
+const selectedKeys = ref<string[]>(['home']);
+const drawerVisible = ref(false);
 
-        label: '首页',
-    },
-    {
-        key: 'tools',
-        label: '物流工具',
-        children: [
-            {
-                key: 'message_add',
-                label: '信息发布',
-            },
-            {
-                key: 'order_search',
-                label: '订单查询',
-            },
+const menuItems = ref<MenuProps['items']>([
+  { key: 'home', label: '首页' },
+  {
+    key: 'tools',
+    label: '物流工具',
+    children: [
+      { key: 'message_add', label: '信息发布' },
+      { key: 'order_search', label: '订单查询' },
+    ],
+  },
+  { key: 'merchant_settled', label: '商家入驻' },
+  { key: 'login', label: '登录' },
+]);
 
-        ]
-    },
-    {
-        key: 'Merchant_settled ',
-        label: h('span', { class: 'red-menu-item' }, '商家入驻'),
-    },
-    {
-        key: 'login',
-        label: '登录',
-    },
-    
+const showDrawer = () => {
+  drawerVisible.value = true;
+};
 
-])
+const closeDrawer = () => {
+  drawerVisible.value = false;
+};
 </script>
 
 <style scoped lang="scss">
-@use '@/theme/src/common/index'as *;
-    .menu {
-        
-        :deep(.ant-menu) {
-            min-width: 100%;
-            justify-content: flex-end;
-          border-bottom: none;
-        }
-        
-    }
-        :deep(.red-menu-item) {
-            color: $danger;
-            
-        }
-    //xs: <576px 隐藏menu
-@media screen and (max-width: 576px) {
-        .menu {
-            display: none;
-        }
-    }
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    //md: 768px 
-@media screen and (max-width: 768px) {
-        .menu {
-            display: none;
-        }
-    }
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
 
 
-
-
-    
-
-
-    //sm: >=567px
-    //lg: 992px 
-    //xl: 1200px 
-
-    //xxl: 1600px 
 </style>

@@ -1,11 +1,12 @@
-@use 'sass:color';
+@use "sass:map";
+@use "sass:color";
 // 定义函数来生成不同亮度的颜色变体
 @function generate-color-variants($base-color) {
   $variants: ();
-  $variants: map-merge($variants, ("darker": color.scale($base-color, $lightness: -5%)));
+  $variants: map.merge($variants, ("darker": color.scale($base-color, $lightness: -5%)));
   @for $i from 1 through 5 {
     $lightness: $i * 10%;
-    $variants: map-merge($variants, ("lighter-#{$i}": color.scale($base-color, $lightness: $lightness)));
+    $variants: map.merge($variants, ("lighter-#{$i}": color.scale($base-color, $lightness: $lightness)));
   }
   @return $variants;
 }
