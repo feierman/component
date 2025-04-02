@@ -1,0 +1,153 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@use '../function/function' as *;
+
+// 主色 - Primary（品牌橙色）
+$primary: #ff6a00; // 主橙色，用于按钮、链接等主要交互元素
+$primary-variants: generate-color-variants($primary);
+$primary-darker: map-get($primary-variants, "darker");
+$primary-lighter-1: map-get($primary-variants, "lighter-1");
+$primary-lighter-2: map-get($primary-variants, "lighter-2");
+$primary-lighter-3: map-get($primary-variants, "lighter-3");
+$primary-lighter-4: map-get($primary-variants, "lighter-4");
+$primary-lighter-5: map-get($primary-variants, "lighter-5");
+
+$success: #52c41a; // 基础绿色，用于成功提示或完成状态
+$success-variants: generate-color-variants($success);
+$success-darker: map-get($success-variants, "darker");
+$success-lighter-1: map-get($success-variants, "lighter-1");
+$success-lighter-2: map-get($success-variants, "lighter-2");
+$success-lighter-3: map-get($success-variants, "lighter-3");
+$success-lighter-4: map-get($success-variants, "lighter-4");
+$success-lighter-5: map-get($success-variants, "lighter-5");
+
+$danger: #f5222d; // 基础红色，用于错误提示或危险操作
+$danger-variants: generate-color-variants($danger);
+$danger-darker: map-get($danger-variants, "darker");
+$danger-lighter-1: map-get($danger-variants, "lighter-1");
+$danger-lighter-2: map-get($danger-variants, "lighter-2");
+$danger-lighter-3: map-get($danger-variants, "lighter-3");
+$danger-lighter-4: map-get($danger-variants, "lighter-4");
+$danger-lighter-5: map-get($danger-variants, "lighter-5");
+
+$warning: #e6a23c; // 基础橙黄色，用于警告提示
+$warning-variants: generate-color-variants($warning);
+$warning-darker: map-get($warning-variants, "darker");
+$warning-lighter-1: map-get($warning-variants, "lighter-1");
+$warning-lighter-2: map-get($warning-variants, "lighter-2");
+$warning-lighter-3: map-get($warning-variants, "lighter-3");
+$warning-lighter-4: map-get($warning-variants, "lighter-4");
+$warning-lighter-5: map-get($warning-variants, "lighter-5");
+
+$info: #909399; // 基础灰色，用于中性信息提示
+$info-variants: generate-color-variants($info);
+$info-darker: map-get($info-variants, "darker");
+$info-lighter-1: map-get($info-variants, "lighter-1");
+$info-lighter-2: map-get($info-variants, "lighter-2");
+$info-lighter-3: map-get($info-variants, "lighter-3");
+$info-lighter-4: map-get($info-variants, "lighter-4");
+$info-lighter-5: map-get($info-variants, "lighter-5");
+
+// 中性色 - 文字颜色
+$text-primary: #303133; // 主文字颜色，用于标题、正文
+$text-regular: #606266; // 常规文字颜色，用于次级正文
+$text-secondary: #909399; // 次要文字颜色，用于辅助说明
+$text-placeholder: #c0c4cc; // 占位符文字颜色，用于输入框占位符
+$text-disabled: #d4d7de; // 禁用文字颜色，用于不可用状态
+$text-active: $primary; // 激活文字颜色
+$text-selected: $primary-darker; // 选中文字颜色
+
+// 中性色 - 背景颜色
+$bg-base: #ffffff; // 默认背景色，用于页面主背景
+$bg-light: #f5f7fa; // 浅灰背景色，用于次级区域
+$bg-gray: #e4e7ed; // 中灰背景色，用于表格表头
+$bg-dark: #dcdfe6; // 深灰背景色，用于深色背景元素
+$bg-disabled: #f0f2f5; // 禁用背景色，用于不可用状态
+$bg-active: $primary-lighter-4; // 激活背景颜色
+$bg-selected: $primary-lighter-3; // 选中背景颜色
+
+// 生成背景颜色更多亮度变体
+$bg-light-variants: generate-color-variants($bg-light);
+$bg-light-darker: map-get($bg-light-variants, "darker");
+$bg-light-lighter-1: map-get($bg-light-variants, "lighter-1");
+$bg-light-lighter-2: map-get($bg-light-variants, "lighter-2");
+$bg-light-lighter-3: map-get($bg-light-variants, "lighter-3");
+$bg-light-lighter-4: map-get($bg-light-variants, "lighter-4");
+$bg-light-lighter-5: map-get($bg-light-variants, "lighter-5");
+
+$bg-gray-variants: generate-color-variants($bg-gray);
+$bg-gray-darker: map-get($bg-gray-variants, "darker");
+$bg-gray-lighter-1: map-get($bg-gray-variants, "lighter-1");
+$bg-gray-lighter-2: map-get($bg-gray-variants, "lighter-2");
+$bg-gray-lighter-3: map-get($bg-gray-variants, "lighter-3");
+$bg-gray-lighter-4: map-get($bg-gray-variants, "lighter-4");
+$bg-gray-lighter-5: map-get($bg-gray-variants, "lighter-5");
+
+$bg-dark-variants: generate-color-variants($bg-dark);
+$bg-dark-darker: map-get($bg-dark-variants, "darker");
+$bg-dark-lighter-1: map-get($bg-dark-variants, "lighter-1");
+$bg-dark-lighter-2: map-get($bg-dark-variants, "lighter-2");
+$bg-dark-lighter-3: map-get($bg-dark-variants, "lighter-3");
+$bg-dark-lighter-4: map-get($bg-dark-variants, "lighter-4");
+$bg-dark-lighter-5: map-get($bg-dark-variants, "lighter-5");
+
+// 中性色 - 边框颜色
+$border-base: #dcdfe6; // 默认边框颜色，用于卡片、输入框
+$border-light: #e4e7ed; // 浅边框颜色，用于次级分隔线
+$border-dark: #c0c4cc; // 深边框颜色，用于强调边框
+$border-hover: #b3b8c0; // 边框悬停颜色，用于交互元素聚焦
+$border-disabled: #ebeef5; // 禁用边框颜色，用于不可用状态
+$border-active: $primary; // 激活边框颜色
+$border-selected: $primary-darker; // 选中边框颜色
+
+// 生成边框颜色更多亮度变体
+$border-light-variants: generate-color-variants($border-light);
+$border-light-darker: map-get($border-light-variants, "darker");
+$border-light-lighter-1: map-get($border-light-variants, "lighter-1");
+$border-light-lighter-2: map-get($border-light-variants, "lighter-2");
+$border-light-lighter-3: map-get($border-light-variants, "lighter-3");
+$border-light-lighter-4: map-get($border-light-variants, "lighter-4");
+$border-light-lighter-5: map-get($border-light-variants, "lighter-5");
+
+$border-dark-variants: generate-color-variants($border-dark);
+$border-dark-darker: map-get($border-dark-variants, "darker");
+$border-dark-lighter-1: map-get($border-dark-variants, "lighter-1");
+$border-dark-lighter-2: map-get($border-dark-variants, "lighter-2");
+$border-dark-lighter-3: map-get($border-dark-variants, "lighter-3");
+$border-dark-lighter-4: map-get($border-dark-variants, "lighter-4");
+$border-dark-lighter-5: map-get($border-dark-variants, "lighter-5");
+
+// 中性色 - 阴影颜色
+$shadow-light: rgba(0, 0, 0, 0.2); // 浅阴影，用于微弱浮起效果
+$shadow-regular: rgba(0, 0, 0, 0.5); // 常规阴影，用于中等浮起效果
+$shadow-dark: rgba(0, 0, 0, 0.6); // 深阴影，用于显著浮起效果
+$shadow-active: rgba($primary, 0.3); // 激活阴影颜色
+$shadow-selected: rgba($primary-darker, 0.4); // 选中阴影颜色
+
+// 中性色 - 填充颜色
+$fill-base: #f0f2f5; // 默认填充色，用于按钮或标签背景
+$fill-light: #f5f7fa; // 浅填充色，用于次级按钮
+$fill-hover: #e4e7ed; // 填充悬停色，用于交互元素hover
+$fill-disabled: #f5f7fa; // 禁用填充色，用于不可用状态
+$fill-active: $primary-lighter-4; // 激活填充颜色
+$fill-selected: $primary-lighter-3; // 选中填充颜色
+
+// 生成填充颜色更多亮度变体
+$fill-light-variants: generate-color-variants($fill-light);
+$fill-light-darker: map-get($fill-light-variants, "darker");
+$fill-light-lighter-1: map-get($fill-light-variants, "lighter-1");
+$fill-light-lighter-2: map-get($fill-light-variants, "lighter-2");
+$fill-light-lighter-3: map-get($fill-light-variants, "lighter-3");
+$fill-light-lighter-4: map-get($fill-light-variants, "lighter-4");
+$fill-light-lighter-5: map-get($fill-light-variants, "lighter-5");
+
+// 中性色 - 遮罩颜色
+$overlay-light: rgba(0, 0, 0, 0.2); // 浅遮罩颜色，用于轻量级遮罩
+$overlay-regular: rgba(0, 0, 0, 0.4); // 常规遮罩颜色，用于模态框背景
+$overlay-dark: rgba(0, 0, 0, 0.6); // 深遮罩颜色，用于强调遮罩效果
+$overlay-primary: rgba($primary, 0.3); // 主色遮罩颜色
+$overlay-success: rgba($success, 0.3); // 成功色遮罩颜色
+$overlay-danger: rgba($danger, 0.3); // 危险色遮罩颜色
+$overlay-warning: rgba($warning, 0.3); // 警告色遮罩颜色
+$overlay-info: rgba($info, 0.3); // 信息色遮罩颜色
