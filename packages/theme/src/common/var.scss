@@ -4,7 +4,7 @@
 @use '../function/function' as *;
 
 // 主色 - Primary（品牌橙色）
-$primary: #ff6a00; // 主橙色，用于按钮、链接等主要交互元素
+$primary: #1677FF; // 主橙色，用于按钮、链接等主要交互元素
 $primary-variants: generate-color-variants($primary);
 $primary-darker: map.get($primary-variants, "darker");
 $primary-lighter-1: map.get($primary-variants, "lighter-1");
@@ -12,6 +12,10 @@ $primary-lighter-2: map.get($primary-variants, "lighter-2");
 $primary-lighter-3: map.get($primary-variants, "lighter-3");
 $primary-lighter-4: map.get($primary-variants, "lighter-4");
 $primary-lighter-5: map.get($primary-variants, "lighter-5");
+$primary-lighter-6: map.get($primary-variants, "lighter-6");
+$primary-lighter-7: map.get($primary-variants, "lighter-7");
+$primary-lighter-8: map.get($primary-variants, "lighter-8");
+
 
 $success: #52c41a; // 基础绿色，用于成功提示或完成状态
 $success-variants: generate-color-variants($success);
@@ -151,3 +155,55 @@ $overlay-success: rgba($success, 0.3); // 成功色遮罩颜色
 $overlay-danger: rgba($danger, 0.3); // 危险色遮罩颜色
 $overlay-warning: rgba($warning, 0.3); // 警告色遮罩颜色
 $overlay-info: rgba($info, 0.3); // 信息色遮罩颜色
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+// 定义基础间距单位
+$base-spacing: 8px;
+
+// 定义不同大小的间距变量
+$spacing-xs: $base-spacing * 0.5; // 4px
+$spacing-sm: $base-spacing; // 8px
+$spacing-md: $base-spacing * 2; // 16px
+$spacing-lg: $base-spacing * 3; // 24px
+$spacing-xl: $base-spacing * 4; // 32px
+$spacing-2xl: $base-spacing * 6; // 48px
+$spacing-3xl: $base-spacing * 8; // 64px
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//定义基础尺寸单位
+$base-size: 16px;
+$tab-height:70px;
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//定义圆角
+$border-radius-base: 4px;
+$border-radius-base-sm: 2px;
+$border-radius-base-md: 6px;
+$border-radius-base-lg: 8px;
+$border-radius-base-xl: 12px;
+$border-radius-base-2xl: 20px;
+$border-radius-base-3xl: 24px;
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>// 字体家族（Font Family）
+$font-primary: 'Roboto', 'Arial', sans-serif;         // 主字体，通常用于正文
+$font-secondary: 'Open Sans', 'Helvetica', sans-serif; // 次要字体，用于标题或强调
+$font-mono: 'Courier New', 'monospace';               // 等宽字体，用于代码或特殊文本
+
+// 字号（Font Size）
+$font-size-base: 16px;           // 基础字号，通常作为基准
+$font-size-sm: 14px;             // 小号字体
+$font-size-lg: 18px;             // 大号字体
+$font-size-h1: 32px;             // 标题1
+$font-size-h2: 24px;             // 标题2
+$font-size-h3: 20px;             // 标题3
+
+// 字重（Font Weight）
+$font-weight-light: 300;         // 细体
+$font-weight-regular: 400;       // 常规
+$font-weight-medium: 500;        // 中等
+$font-weight-bold: 700;          // 粗体
+
+// 行高（Line Height）
+$line-height-base: 1.5;          // 基础行高（无单位，表示倍数）
+$line-height-tight: 1.2;         // 紧凑行高
+$line-height-loose: 1.8;         // 宽松行高

@@ -16,9 +16,12 @@ import Header from "@/components/header/Header.vue";
 @use '../theme/src/common/index' as *;
   .container{
     height: 100vh;
+    background: $bg-base;
+    //  禁止选中
+    user-select: none !important;
   }
   .a-layout-header,.a-layout-footer{
-    background-color: $bg-base;
+    background: $bg-base;
 
   }
 </style>

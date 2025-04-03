@@ -1,0 +1,83 @@
+@use '@/theme/src/common/var' as *;
+
+.nav-tabs {
+  min-width: 800px;
+  min-height: 300px;
+  background: $bg-base;
+  overflow: hidden;
+  border:1px solid $primary-lighter-6 ;
+  border-radius: $border-radius-base-2xl;
+  .tabs-header {
+    display: flex;
+    height: $tab-height;
+    background-color: $primary-lighter-6;
+    padding: 0;
+    border-radius: $border-radius-base-xl $border-radius-base-xl 0 0;
+    cursor: pointer;
+  }
+  .tabs-header-item{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $tab-height;
+    color: $primary-lighter-3;
+    position: relative;
+    font: normal $font-weight-medium $font-size-h2   $font-primary;
+    vertical-align: middle;
+    i{
+      font: normal $font-weight-medium $font-size-h2   $font-primary; ;
+      margin-right: 10px;
+    }
+    &:hover{
+      color: $primary;
+    }
+  }
+  .active {
+    opacity: 1;
+    background-color: $bg-base;
+    border-radius: $border-radius-base-xl $border-radius-base-xl 0 0;
+    box-shadow: 12px 12px 0 0 $bg-base, -12px 12px 0 0 $bg-base;
+    color: $primary-lighter-1;
+    vertical-align: middle;
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      bottom: 0;
+      width: 12px;
+      height: $tab-height;
+      border-radius: 0 0 $border-radius-base-xl 0;
+      background-color: $primary-lighter-6;
+    }
+
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      bottom: 0;
+      width: 12px;
+      height: $tab-height;
+      background-color: $primary-lighter-6;
+      border-radius: 0 0 0 $border-radius-base-xl;
+    }
+
+    i{
+      font: normal $font-weight-medium $font-size-h1   $font-primary;
+      margin-right: 10px;
+    }
+  }
+  .tabs-content{
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+
+
+

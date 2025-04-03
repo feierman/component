@@ -1,19 +1,19 @@
 <template>
-  <a-row class="nav-bar">
+  <a-row class="nav-bar"  >
     <!-- LOGO -->
-    <a-col :xs="4" :sm="4" :md="4" :lg="4" :xl="4" class="logo">
+    <a-col :xs="3" :sm="4" :md="4" :lg="4" :xl="4" class="logo">
       <router-link to="/">
         <a-image
             src="https://static.vecteezy.com/system/resources/previews/022/227/364/original/openai-chatgpt-logo-icon-free-png.png"
-            :width="50"
-            :height="50"
+            :width="40"
+            :height="40"
             :preview="false"
         />
       </router-link>
     </a-col>
 
     <!-- 大屏幕菜单 -->
-    <a-col :xs="0" :sm="0" :md="6" :lg="6" :xl="6"  class="desktop-menu">
+    <a-col :xs="0" :sm="0" :md="11" :lg="8" :xl="8" :xxl="8"  class="desktop-menu">
       <a-menu v-model:selectedKeys="selectedKeys" mode="horizontal" :items="menuItems" />
     </a-col>
 
@@ -25,7 +25,7 @@
 
   <!-- 抽屉菜单 -->
   <a-drawer v-model:open="drawerVisible" title="导航栏" placement="right" :width="260" :closable="false">
-    <a-menu v-model:selectedKeys="selectedKeys" mode="vertical" :items="menuItems" @click="closeDrawer" />
+    <a-menu v-model:selectedKeys="selectedKeys" mode="vertical" :items="menuItems" @click="closeDrawer" class="drawer-menu"/>
   </a-drawer>
 </template>
 
@@ -70,6 +70,7 @@ const closeDrawer = () => {
 
 .logo {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -77,6 +78,10 @@ const closeDrawer = () => {
   font-size: 20px;
   cursor: pointer;
 }
-
-
+.ant-menu {
+  border-bottom: none;
+}
+.drawer-menu{
+  border-right: none !important;
+}
 </style>
