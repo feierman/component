@@ -13,7 +13,7 @@
 </a-row>
 </template>
 <script lang="ts" setup>
-import {reactive, ref} from 'vue';
+import { ref} from 'vue';
 import type {  CarouselProps } from 'ant-design-vue';
 const dotPosition = ref<CarouselProps['dotPosition']>('right');
 
