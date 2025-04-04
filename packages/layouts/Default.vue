@@ -2,7 +2,7 @@
   <a-layout class="container" >
     <a-layout-header class="a-layout-header" > <Header /></a-layout-header>
     <a-layout-content> <router-view /></a-layout-content>
-    <a-layout-footer class="a-layout-footer"> footer</a-layout-footer>
+
   </a-layout>
   
 </template>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tabs</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ol,ul{
+            list-style: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+
+        }
+        .tabs{
+            width: 800px;
+            height: 220px;
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #1677ff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            overflow: hidden;
+            .tabs-header{
+                display: flex;
+                align-items: center;
+                height: 60px;
+                width: 100%;
+                background-color: #1677ff;
+                border-radius:16px 16px 0 0 ;
+                cursor: pointer;
+            }
+            .tabs-header-item{
+                flex: 1;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            .tabs-content{
+                display: flex;
+                height: 200px;
+                width: 100%;
+                background-color: #fff;
+                border-radius: 0 0 16px 16px;
+            }
+            .tab-pane{
+                display: none;
+                height: calc(100% - 60px);
+                margin: 0 auto;
+                &.active{
+                    display: block;
+                }
+            }
+            .active{
+                opacity: 1;
+                background: #ffffff;
+                border-radius: 16px 16px 0 0;
+                box-shadow: 12px 12px 0 0 #fff, -12px 12px 0 0 #fff;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: -12px;
+                    bottom:0;
+                    width: 12px;
+                    height: 100%;
+                    border-radius: 0 0 16px 0;
+                    background: #1677ff;
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -12px;
+                    bottom: 0;
+                    width: 12px;
+                    height: 100%;
+                    border-radius: 0 0 0 16px;
+                    background: #1677ff;
+                }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <ul class="tabs-header">
+            <li class="tabs-header-item active " data-tab="tab1">
+                <i class="iconfont icon-xianluchaxun01"></i>
+                <span>线路查询</span>
+            </li>
+            <li class="tabs-header-item" data-tab="tab2">
+                <i class="iconfont icon-dingdan"></i>
+                <span>公司查询</span>
+            </li>
+            <li class="tabs-header-item" data-tab="tab3">
+                <i class="iconfont icon-kefu"></i>
+                <span>快运查询</span>
+            </li>
+        </ul>
+        <ul class="tabs-content">
+            <li class="tab-pane active" id="tab1">
+                <h2>zheshitabs1</h2>
+                <p>1234</p>
+            </li>
+            <li class="tab-pane" id="tab2">
+                <h2>zheshitabs2</h2>
+            </li>
+            <li class="tab-pane" id="tab3">
+                <h2>zheshitabs3</h2>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+class Tabs {
+    constructor(container) {
+        this.container = container;
+        this.tabsHeader = container.querySelectorAll('.tabs-header-item');
+        this.tabPanes = container.querySelectorAll('.tab-pane');
+        this.init();
+    }
+
+    init() {
+        this.tabsHeader.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // 打印事件
+                console.log('点击了第' + (index + 1) + '个tab');
+                this.switchTab(item.getAttribute('data-tab'), index);
+            })
+        })
+    }
+
+    switchTab(tabId, index) {
+        //    清除所有的激活状态
+        this.tabsHeader.forEach((item, i) => {
+            item.classList.remove('active');
+        })
+        this.tabPanes.forEach((item, i) => {
+            item.classList.remove('active');
+        })
+        //   获取id的元素
+        const activeTab = this.container.querySelector(`[data-tab="${tabId}"]`);
+        const activePane = this.container.querySelector(`#${tabId}`);
+        //   添加激活状态
+        activeTab.classList.add('active');
+        activePane.classList.add('active');
+    }
+}
+//初始化tabs
+document.addEventListener('DOMContentLoaded', () => {
+    const tabsContainer = document.querySelectorAll('.tabs');
+    tabsContainer.forEach(container => {
+// 调用Tabs函数，传入container参数
+        new Tabs(container);
+    })
+})
+
+
+</script>

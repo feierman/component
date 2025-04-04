@@ -6,6 +6,34 @@
   "description": "物流icon",
   "glyphs": [
     {
+      "icon_id": "2740132",
+      "name": "物流公司",
+      "font_class": "wuliugongsi",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "8797978",
+      "name": "公司查询",
+      "font_class": "gongsichaxun",
+      "unicode": "e7ce",
+      "unicode_decimal": 59342
+    },
+    {
+      "icon_id": "14236002",
+      "name": "物流公司列表",
+      "font_class": "wuliugongsiliebiao",
+      "unicode": "e8f8",
+      "unicode_decimal": 59640
+    },
+    {
+      "icon_id": "36191702",
+      "name": "生活服务_物流公司",
+      "font_class": "shenghuofuwu_wuliugongsi",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
       "icon_id": "847625",
       "name": "往返",
       "font_class": "wangfan",
@@ -188,13 +216,6 @@
       "unicode_decimal": 59299
     },
     {
-      "icon_id": "2003230",
-      "name": "物流公司",
-      "font_class": "wuliugongsi",
-      "unicode": "e6b7",
-      "unicode_decimal": 59063
-    },
-    {
       "icon_id": "4213008",
       "name": "更多",
       "font_class": "gengduo2",
@@ -207,13 +228,6 @@
       "font_class": "dingdanchaxun",
       "unicode": "e615",
       "unicode_decimal": 58901
-    },
-    {
-      "icon_id": "4486861",
-      "name": "招聘管理资源 141",
-      "font_class": "zhaopinguanliziyuan",
-      "unicode": "e63b",
-      "unicode_decimal": 58939
     },
     {
       "icon_id": "4585482",
@@ -237,25 +251,11 @@
       "unicode_decimal": 58979
     },
     {
-      "icon_id": "6219264",
-      "name": "清空",
-      "font_class": "qingkong",
-      "unicode": "e946",
-      "unicode_decimal": 59718
-    },
-    {
       "icon_id": "6334210",
       "name": "工作",
       "font_class": "gongzuo",
       "unicode": "e611",
       "unicode_decimal": 58897
-    },
-    {
-      "icon_id": "6488979",
-      "name": "清空",
-      "font_class": "qingkong1",
-      "unicode": "e62a",
-      "unicode_decimal": 58922
     },
     {
       "icon_id": "7192490",
@@ -405,25 +405,11 @@
       "unicode_decimal": 58898
     },
     {
-      "icon_id": "20877208",
-      "name": "快运",
-      "font_class": "kuaiyun",
-      "unicode": "e613",
-      "unicode_decimal": 58899
-    },
-    {
       "icon_id": "21394346",
       "name": "订单查询",
       "font_class": "dingdanchaxun1",
       "unicode": "f4de",
       "unicode_decimal": 62686
-    },
-    {
-      "icon_id": "23657375",
-      "name": "关于我们",
-      "font_class": "guanyuwomen",
-      "unicode": "f8d5",
-      "unicode_decimal": 63701
     },
     {
       "icon_id": "23992458",
@@ -466,13 +452,6 @@
       "font_class": "shouye",
       "unicode": "e616",
       "unicode_decimal": 58902
-    },
-    {
-      "icon_id": "32323514",
-      "name": "小包裹快运",
-      "font_class": "a-leixingaPxiaobaoguokuaiyun",
-      "unicode": "e6e0",
-      "unicode_decimal": 59104
     },
     {
       "icon_id": "33765528",
