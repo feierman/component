@@ -158,7 +158,7 @@ $overlay-info: rgba($info, 0.3); // 信息色遮罩颜色
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 // 定义基础间距单位
-$base-spacing: 8px;
+$base-spacing: 1rem;
 
 // 定义不同大小的间距变量
 $spacing-xs: $base-spacing * 0.5; // 4px
@@ -172,7 +172,9 @@ $spacing-3xl: $base-spacing * 8; // 64px
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //定义基础尺寸单位
 $base-size: 16px;
-$tab-height:70px;
+$tab-header-height: 60px;
+$tabs-width:800px;
+$tabs-height: 200px;
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //定义圆角
@@ -190,12 +192,11 @@ $font-secondary: 'Open Sans', 'Helvetica', sans-serif; // 次要字体，用于�
 $font-mono: 'Courier New', 'monospace';               // 等宽字体，用于代码或特殊文本
 
 // 字号（Font Size）
-$font-size-base: 16px;           // 基础字号，通常作为基准
-$font-size-sm: 14px;             // 小号字体
-$font-size-lg: 18px;             // 大号字体
-$font-size-h1: 32px;             // 标题1
-$font-size-h2: 24px;             // 标题2
-$font-size-h3: 20px;             // 标题3
+$font-size-base: 1rem;           // 基础字号，通常作为基准
+$font-size-sm: $base-size * 0.875; // 小字号，用于辅助文本或图标
+$font-size-md: $base-size * 1.125; // 中字号，用于标题或按钮
+$font-size-lg: $base-size * 1.25;  // 大字号，用于重要标题或按钮
+$font-size-xl: $base-size * 1.5;   // 超大字号，用于主标题或重要文本
 
 // 字重（Font Weight）
 $font-weight-light: 300;         // 细体
@@ -207,3 +208,10 @@ $font-weight-bold: 700;          // 粗体
 $line-height-base: 1.5;          // 基础行高（无单位，表示倍数）
 $line-height-tight: 1.2;         // 紧凑行高
 $line-height-loose: 1.8;         // 宽松行高
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//定义阴影
+$shadow-base: 0 2px 4px rgba(0, 0, 0, 0.1); // 基础阴影，用于微弱浮起效果
+$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2); // 中等阴影，用于中等浮起效果
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3); // 大阴影，用于显著浮起效果
+$shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.4); // 超大阴影，用于非常显著浮起效果

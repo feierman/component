@@ -19,7 +19,7 @@ const dotPosition = ref<CarouselProps['dotPosition']>('right');
 
 </script>
 <style scoped lang="scss">
-@use '@/theme/src/common/index' as *;
+
 .carousel-item{
   height: 140px;
   img{

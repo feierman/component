@@ -9,20 +9,19 @@ import Tabs from "../components/tabs/Tabs.vue";
   <a-layout-content class="a-layout-content">
     <Carousel />
     <!-- 轮播图下方的 Tabs 组件 -->
-    <div class="below-carousel">
+    <div class="tabs">
       <Tabs  />
     </div>
   </a-layout-content>
 </template>
 
 <style scoped lang="scss">
+@use '@/theme/src/index.scss' as *;
 .a-layout-content{
   margin:  10px auto;
 }
-.below-carousel{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
+.tabs{
+  @include flex-center;
+  margin-top: $spacing-sm;
 }
 </style>

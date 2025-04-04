@@ -25,5 +25,11 @@ export default defineConfig({
             "@": path.resolve(__dirname, "packages"),
         },
     },
-
+    css:{
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use "@/theme/src/index.scss" as *;`
+            }
+        }
+    }
 })

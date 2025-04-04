@@ -12,7 +12,6 @@ import Header from "@/components/header/Header.vue";
 </script>
 
 <style scoped lang="scss">
-@use '@/theme/src/common/index' as *;
   .container{
     height: 100vh;
     background: $bg-base;
