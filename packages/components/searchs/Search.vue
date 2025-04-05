@@ -2,7 +2,7 @@
   <div class="search-box">
     <a-row :gutter="10" class="groupInput">
       <a-col :xs="11" :sm="11" :md="9" :lg="9" :xl="9" class="start">
-        <a-input v-model:value="startPoint" placeholder="起点" @click="showModal">
+        <a-input v-model:value="startPoint" placeholder="起点" @click="showStartPointModal">
           <template #prefix>
             <i class="iconfont icon-qidian1"></i>
           </template>
@@ -12,7 +12,7 @@
         <i class="iconfont icon-wangfan"></i>
       </a-col>
       <a-col :xs="11" :sm="11" :md="9" :lg="9" :xl="9" class="end">
-        <a-input placeholder="终点" @click="showModal">
+        <a-input placeholder="终点" @click="showEndPointModal">
           <template #prefix>
             <i class="iconfont icon-zhongdian1"></i>
           </template>
@@ -27,8 +27,9 @@
         </a-button>
       </a-col>
     </a-row>
-    <Modal :visible="showVisible" @update:open="showVisible = $event"
-           @confirm="handleConfirm" >
+    <Modal :open="showVisible" @update:open="showVisible = $event"
+           @confirm="handleConfirm"
+           :modalTitle="modalTitle" >
       
     </Modal>
   </div>
@@ -61,9 +62,17 @@ watch(
 // 定义响应式变量及其类型
 const showVisible = ref<boolean>(false);
 const inputValue = ref<string>('');
+const modalTitle = ref<string>(''); // 新增：记录模态框标题
 
-// 点击输入框显示模态框
-const showModal = () => {
+// 点击起点输入框显示模态框
+const showStartPointModal = () => {
+  modalTitle.value = '起点';
+  showVisible.value = true;
+};
+
+// 点击终点输入框显示模态框
+const showEndPointModal = () => {
+  modalTitle.value = '终点';
   showVisible.value = true;
 };
 
@@ -71,6 +80,12 @@ const showModal = () => {
 const handleConfirm = (value: string) => {
   inputValue.value = value; // 更新输入框的值
   console.log('模态框返回的值:', value);
+  if (modalTitle.value === '起点') {
+    startPoint.value = value; // 如果是选择起点，更新 startPoint
+  } else if (modalTitle.value === '终点') {
+    // 在这里处理终点选择的逻辑，例如创建一个 ref 存储终点
+    console.log('选择了终点:', value);
+  }
 };
 </script>
 
