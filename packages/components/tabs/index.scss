@@ -23,8 +23,7 @@
   .tabs-header-item {
     flex: 1;
     @include flex-center;
-  //  position: relative;
-    font: normal $font-weight-medium $font-size-md $font-primary;
+    position: relative;
   //
     &:hover {
       color: $primary-lighter-8;
@@ -41,6 +40,7 @@
       box-shadow: $border-radius-base-xl $border-radius-base-xl 0 0 $bg-base,
       -$border-radius-base-xl $border-radius-base-xl 0 0 $bg-base;
       color: $primary-lighter-1;
+      font: normal $font-weight-medium $font-size-md $font-primary;
 
       &:hover {
         color: $primary-darker;
@@ -72,7 +72,6 @@
 
   .tabs-content {
     display: flex;
-    justify-content: center;
     width: 100%;
     height: calc(100% - 60px);
     box-sizing: border-box;
@@ -80,22 +79,13 @@
   }
 
   .tab-pane {
-    display: none;
     width: 100%;
     height: 100%;
     background: $bg-base;
     border-radius: $border-radius-base;
     overflow: auto;
     @include flex-center;
-    &.active {
-      display: flex;
-      opacity: 1;
-      background: $bg-base;
-      border-radius: $border-radius-base;
-      box-shadow: none;
-      color: inherit;
-      width: 100%;
-    }
+
   }
 }
 
@@ -103,5 +93,12 @@
 @media screen and (max-width: 768px) {
   .nav-tabs{
     margin: $spacing-xs;
+  }
+  .tabs-header-item{
+    font: normal $font-weight-regular $font-size-base $font-primary !important;
+
+    i{
+      margin-right: 2px !important ;
+    }
   }
 }
