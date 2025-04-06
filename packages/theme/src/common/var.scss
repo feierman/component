@@ -172,9 +172,17 @@ $spacing-3xl: $base-spacing * 8; // 64px
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //定义基础尺寸单位
 $base-size: 16px;
+$width:100%;
+$height:100%;
+
 $tab-header-height: 60px;
 $tabs-width:800px;
 $tabs-height: 200px;
+
+$modal-width: 850px;
+$modal-height: 450px;
+$modal-header-height: 60px;
+$modal-aside-width: 250px;
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //定义圆角
