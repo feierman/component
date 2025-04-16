@@ -32,7 +32,9 @@
 import { ref, onMounted } from 'vue';
 import Search from '@/components/searchs/Search.vue';
 import Gongsi from '@/components/searchs/Gongsi.vue';
-import { fetchStartPoint } from '@/api';
+// import { fetchStartPoint } from '@/api/amap';
+import { useCityStore } from '@/stores';
+
 
 interface Tab {
   key: string;
@@ -48,19 +50,21 @@ const tabs : Tab[] = [
 ];
 
 const activeKey = ref<string>('tab1');
-const startPoint = ref<string>('');
+const cityStore = useCityStore();
+const startPoint = ref<string>(cityStore.city);
+
 
 const switchTab = async (key: string, index: number) => {
   activeKey.value = key;
   console.log(`切换到选项卡： ${key}`);
   if (key === 'tab1' || key === 'tab3') {
-    startPoint.value = await fetchStartPoint();
+    startPoint.value = await cityStore.fetchStartPoint();
   }
 };
 
 onMounted(async () => {
   console.log('组件安装。正在加载 tab1 的初始数据...');
-  startPoint.value = await fetchStartPoint();
+  startPoint.value = await cityStore.fetchStartPoint();
 });
 </script>
 
