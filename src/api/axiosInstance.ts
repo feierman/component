@@ -2,7 +2,10 @@
 //axios 实例配置
 import axios from 'axios';
 import { API_BASE_URL, TIMEOUT } from './apiConfig';
-
+// Validate API_BASE_URL
+if (!API_BASE_URL) {
+    console.error('API_BASE_URL is not defined in apiConfig. Please set a valid base URL.');
+}
 // 创建 axios 实例
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -16,6 +19,7 @@ api.interceptors.request.use(
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`; // 添加认证头部
         }
+        console.log('Request config:', config); // Debug: Log request config
         return config;
     },
     (error) => Promise.reject(error)
@@ -24,11 +28,7 @@ api.interceptors.request.use(
 // 响应拦截器
 api.interceptors.response.use(
     (response) => {
-        if (response.data.success) {
-            return response.data.data; // 返回接口数据
-        } else {
-            return Promise.reject(new Error('Response data error'));
-        }
+        return response.data;
     },
     (error) => {
         console.error('API Error:', error);

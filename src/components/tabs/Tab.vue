@@ -69,7 +69,7 @@ const switchTab = (index: number) => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .tabs-container {
   width: 100%;
   max-width: 800px;
@@ -78,34 +78,35 @@ const switchTab = (index: number) => {
 
 .tabs-header {
   display: flex;
-  border-bottom: 1px solid #e5e7eb;
 }
 
 .tab-item {
-  padding: 12px 24px;
+  padding: $spacing-xs ;
   cursor: pointer;
-  font-size: 16px;
-  color: #4b5563;
-  transition: all 0.3s ease;
+  font-size: $font-size-base;
+  color: $text-primary;
+  transition: all 0.3s ease ;
 }
 
 .tab-item:hover {
-  color: #2563eb;
+  color: $primary;
 }
 
 .tab-item.active {
-  color: #2563eb;
-  border-bottom: 2px solid #2563eb;
+  color: $primary;
+  border-bottom: 2px solid $primary;
 }
 
 .tabs-content {
-  padding: 24px;
-  background: #f9fafb;
+  padding: $spacing-sm;
   border-radius: 0 0 8px 8px;
 }
 
 .no-content {
-  color: #6b7280;
+  @include flex-center;
+  height: 369px;
+  color: $bg-dark-lighter-5;
   text-align: center;
+  overflow: hidden;
 }
 </style>

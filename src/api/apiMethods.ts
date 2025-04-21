@@ -4,6 +4,29 @@ import api from './axiosInstance';
 import {API_ENDPOINTS} from "./apiEndpoints";
 import axios from "axios";
 
+// Define types
+interface Province {
+    code: string;
+    name: string;
+}
+
+interface ApiResponse {
+    status: number;
+    body: {
+        code: number;
+        message: string;
+        data: Province[];
+        meta: null;
+    };
+}
+
+interface AMapResponse {
+    status: string;
+    info: string;
+    province: string;
+    city: string;
+    // Add other fields as needed
+}
 const AMAP_KEY = import.meta.env.VITE_AMAP_KEY as string;
 // 获取高德地图数据
 export const getAMap = async () => {
@@ -22,9 +45,10 @@ export const getAMap = async () => {
 };
 
 // 获取省份数据
-export const getProvinces = async () => {
+// Get provinces data
+export const getProvinces = async (): Promise<ApiResponse> => {
     try {
-        return await api.get(API_ENDPOINTS.provinces);
+        return await api.get(API_ENDPOINTS.provinces); // response is already response.data due to interceptor
     } catch (error) {
         console.error('无法获取省份数据:', error);
         throw error;

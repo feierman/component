@@ -26,34 +26,67 @@
             <search-outlined />
           </template>
         </a-input>
-       <Tab tabs="">
-       
-       </Tab>
+      <Tab :tabs="tabsData">
+        <template #guonei>
+          <a-row class="areas-header">
+            <a-col :span="8">省份</a-col>
+            <a-col :span="8">直辖市</a-col>
+            <a-col :span="8">区县</a-col>
+          </a-row>
+          <a-row   class="areas-content">
+            <a-col :span="8" class="provinces">
+              <div v-for="province in areaData" :key="province.code" class="provinces-item">{{province.name}}</div>
+            </a-col>
+            <a-col :span="8">市</a-col>
+            <a-col :span="8">区县</a-col>
+          </a-row>
+        </template>
+        <template #guoji>
+          国际
+        </template>
+      </Tab>
       </div>
     </div>
   </a-modal>
 </template>
 
 <script setup lang="ts">
-import { ref} from 'vue';
-
+import { ref,onMounted,computed} from 'vue';
+import { message } from 'ant-design-vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import Tab from "@/components/tabs/Tab.vue";
+import { getProvinces } from "@api/apiMethods.ts";
+
+interface Province {
+  code: string;
+  name: string;
+}
+interface ApiResponse {
+  status: number;
+  body: {
+    code: string;
+    message:string;
+    data: Province[];
+    meta:null
+  };
+}
+const areaData = ref<Province[]>([])
+const loading = ref<boolean>(false)
 
 // 定义 props 类型
-const props = defineProps<{
+const { open, modalTitle } = defineProps<{
   open: boolean;
   modalTitle: string;
 }>();
-
 // 定义 emits 类型
 const emit = defineEmits<{
   (e: 'update:open', value: boolean): void;
   (e: 'confirm', value: string): void;
 }>();
-
-
-
+const tabsData:Tab[] = [
+  { id: '1', label: '国内城市', slotName: 'guonei' },
+  { id: '2', label: '国际城市', slotName: 'guoji' },
+]
 
 // 模态框输入值
 const modalInput = ref<string>('');
@@ -69,18 +102,55 @@ const handleOk = () => {
   emit('update:open', false);
 };
 
+
+// Fetch data
+const fetchData = async () => {
+  try {
+    const response = await getProvinces() as ApiResponse;
+    if (response.body.code === 200) {
+      areaData.value = response.body.data;
+    } else {
+      message.error('获取省份数据失败');
+    }
+  } catch (error) {
+    message.error('获取省份数据失败，请稍后重试');
+  }
+};
+onMounted(() => {
+  fetchData()
+})
+
 </script>
 
 <style scoped lang="scss">
 @use '@/theme/src/index' as *;
 
+.title-box {
+  margin: 4px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .ant-btn-primary {
+    background: #1890ff;
+    border-color: #1890ff;
+    border-radius: 4px;
+  }
+}
 .modal-content-box {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   height: $modal-height;
   width: 90%;
-  
+  user-select: none;
   .modal-content-header {
     height: $modal-header-height;
     padding: $spacing-xs;
@@ -104,28 +174,26 @@ const handleOk = () => {
       }
     }
   }
-  
+  .areas-header{
+    color: $text-regular;
+  }
+  .areas-content{
+    height: 340px;
+    .provinces{
+      height: $height;
+      overflow: auto;
+      .provinces-item{
+        padding: $spacing-xs 0;
+        cursor: pointer;
+      }
+      
+    }
+  }
 }
 
-.title-box {
-  margin: 4px auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  span {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .ant-btn-primary {
-    background: #1890ff;
-    border-color: #1890ff;
-    border-radius: 4px;
-  }
-}
+
+
+
 @media screen and (max-width: 768px) {
   .title-box {
     width: 90%;

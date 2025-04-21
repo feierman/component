@@ -37,7 +37,6 @@
     <Modal :open="showVisible" @update:open="showVisible = $event"
            @confirm="handleConfirm"
            :modalTitle="modalTitle" >
-      
     </Modal>
   </div>
 
