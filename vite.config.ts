@@ -18,8 +18,8 @@ export default defineConfig({
     //@别名
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './packages'),
-            '@api': path.resolve(__dirname, 'packages/api'), // 将 '@api' 别名指向 'src/api' 文件夹        },
+            '@': path.resolve(__dirname, './src'),
+            '@api': path.resolve(__dirname, 'src/api'), // 将 '@api' 别名指向 'src/api' 文件夹        },
         },
     },
     css:{
