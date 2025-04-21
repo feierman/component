@@ -1,0 +1,33 @@
+@use '@/theme/src/index' as *;
+
+.modal-content-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: $modal-height;
+  width: 90%;
+
+ .modal-content-header{
+    height: $modal-header-height;
+    padding: $spacing-xs;
+  }
+
+  .remaining-content{
+    display: flex;
+    height: calc(100% - 39px);
+    background: $bg-light-lighter-1;
+    overflow: hidden;
+
+  }
+
+}
+
+
+
+.title-box {
+  margin: 4px auto;
+  width: 87%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

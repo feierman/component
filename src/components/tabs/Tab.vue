@@ -1,0 +1,111 @@
+<template>
+  <div class="tabs-container">
+    <!-- 标签页头部 -->
+    <div class="tabs-header">
+      <div
+        v-for="(tab, index) in tabs"
+        :key="tab.id"
+        :class="['tab-item', { active: activeTab === index }]"
+        @click="switchTab(index)"
+      >
+        {{ tab.label }}
+      </div>
+    </div>
+    <!-- 标签页内容 -->
+    <div class="tabs-content">
+      <slot v-if="tabs.length && tabs[activeTab]" :name="tabs[activeTab].slotName" />
+      <div v-else class="no-content">暂无内容</div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+
+/**
+ * 定义 Tab 接口
+ */
+interface Tab {
+  id: string // 唯一标识
+  label: string // 标签显示文本
+  slotName: string // 对应插槽名称
+}
+
+/**
+ * 定义 props
+ */
+const props = defineProps<{
+  tabs: Tab[] // 标签页数据，必填
+}>()
+
+/**
+ * 当前激活的标签页索引
+ */
+const activeTab = ref(0)
+
+/**
+ * 监听 tabs 变化，确保 activeTab 有效
+ */
+watch(
+  () => props.tabs,
+  (newTabs) => {
+    if (!newTabs || newTabs.length === 0) {
+      activeTab.value = 0
+    } else if (activeTab.value >= newTabs.length) {
+      activeTab.value = newTabs.length - 1
+    }
+  },
+  { immediate: true }
+)
+
+/**
+ * 切换标签页
+ * @param index 目标标签页索引
+ */
+const switchTab = (index: number) => {
+  if (index >= 0 && index < props.tabs.length) {
+    activeTab.value = index
+  }
+}
+</script>
+
+<style scoped>
+.tabs-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tabs-header {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-item {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #4b5563;
+  transition: all 0.3s ease;
+}
+
+.tab-item:hover {
+  color: #2563eb;
+}
+
+.tab-item.active {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.tabs-content {
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 0 0 8px 8px;
+}
+
+.no-content {
+  color: #6b7280;
+  text-align: center;
+}
+</style>

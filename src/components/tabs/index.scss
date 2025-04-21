@@ -1,0 +1,109 @@
+@use '@/theme/src/index.scss' as *;
+
+.nav-tabs {
+  display: flex;
+  flex-direction: column;
+  width: $tabs-width;
+  height: $tabs-height;
+  background: $bg-base;
+  border-radius: $border-radius-base-xl;
+  border: 2px solid $primary-lighter-1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  .tabs-header {
+    height: 60px;
+    width: 100%;
+    background: $primary-lighter-1;
+    color: $bg-base;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .tabs-header-item {
+    flex: 1;
+    @include flex-center;
+    position: relative;
+    transition: color 0.2s ease-in-out;
+    i {
+      margin-right: $spacing-sm;
+      font-size: $font-size-xl;
+    }
+    span{
+      font: normal $font-weight-light $font-size-lg $font-primary;
+    }
+    &:hover {
+      color: $primary-lighter-8;
+    }
+    &.active {
+      opacity: 1;
+      background: $bg-base;
+      border-radius: $border-radius-base-xl $border-radius-base-xl 0 0;
+      box-shadow: $border-radius-base-xl $border-radius-base-xl 0 0 $bg-base,
+      -$border-radius-base-xl $border-radius-base-xl 0 0 $bg-base;
+      color: $primary;
+      span{
+        font: normal $font-weight-medium $font-size-lg $font-primary;
+    }
+      &:hover {
+        color: $primary-darker;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: -12px;
+        bottom: 0;
+        width: 12px;
+        height: 100%;
+        border-radius: 0 0 $border-radius-base-xl 0;
+        background: $primary-lighter-1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: -12px;
+        bottom: 0;
+        width: 12px;
+        height: 100%;
+        border-radius: 0 0 0 $border-radius-base-xl;
+        background: $primary-lighter-1;
+      }
+    }
+  }
+
+  .tabs-content {
+    display: flex;
+    width: 100%;
+    min-height: calc(100% - 60px);
+  }
+
+  .tab-pane {
+    width: 100%;
+    height: 100%;
+    background: $bg-base;
+    border-radius: $border-radius-base;
+    overflow: auto;
+    @include flex-center;
+
+  }
+}
+
+//小于768响应式
+@media screen and (max-width: 768px) {
+  .nav-tabs{
+    height: 100%;
+    border: 1px solid $primary-lighter-1;
+    margin: 5px;
+  }
+  .tabs-header-item{
+    @include flex-center;
+    i{
+      margin-right: $spacing-xs !important;
+      font-size: $font-size-sm !important;
+    }
+    span{
+      font: normal $font-weight-medium $font-size-base $font-primary !important;
+    }
+  }
+}
