@@ -88,13 +88,10 @@ const switchTab = (index: number) => {
   transition: all 0.3s ease ;
 }
 
-.tab-item:hover {
-  color: $primary;
-}
 
 .tab-item.active {
   color: $primary;
-  border-bottom: 2px solid $primary;
+  border-bottom: 1px solid $primary;
 }
 
 .tabs-content {

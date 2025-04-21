@@ -183,8 +183,20 @@ onMounted(() => {
       height: $height;
       overflow: auto;
       .provinces-item{
-        padding: $spacing-xs 0;
+        padding: $spacing-xs 0 ;
         cursor: pointer;
+      }
+      //滚动条样式
+      &::-webkit-scrollbar {
+        width: 2px;
+        height: 1px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        &:hover {
+          width: 12px;
+          height: 12px;
+          background-color: #e5e5e5;
+        }
       }
       
     }
